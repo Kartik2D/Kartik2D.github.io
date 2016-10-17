@@ -1,12 +1,13 @@
 var obj_petal = [];
 var obj_stem = [];
+var angle = 0;
 
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 
   for (var i = 0; i<10; i++) {
-    obj_petal.push(new petal(window.innerWidth/2,window.innerWidth/4));
+    obj_petal.push(new petal(window.innerWidth/2,window.innerWidth/4,0));
   }
 
   for (var i = 0; i<6; i++) {
@@ -47,10 +48,11 @@ function draw() {
     obj_stem[i].move();
   }
 
+angle+=0.1;
 
 }
 
-function petal(xx,yy) {
+function petal(xx,yy,cc) {
 
   this.x = xx;
   this.y = yy;
@@ -61,10 +63,14 @@ function petal(xx,yy) {
   this.max = 4 * getRandom(1,1.3);
   this.xPos = this.x;
   this.dead = 0;
+  this.col = cc;
 
   this.display = function() {
-    stroke('#ff2828');
-    fill('#522f2f');
+    //stroke('#ff2828');
+    //fill('#522f2f');
+    colorMode(HSB);
+    stroke(this.col,100,100);
+    fill(this.col,70,50);
     this.xPos = this.x;
     push();
     translate(this.x,this.y);
@@ -108,14 +114,16 @@ function petal(xx,yy) {
 function stem(xx,yy) {
   this.x = xx;
   this.y = yy;
-  this.lengthStem = 150 * getRandom(0.6,1.5);
+  this.lengthStem = 150 * getRandom(0.3,1.8);
   this.x1 = xx;
   this.y1 = this.y-this.lengthStem;
   this.xP = xx;
   this.yP = yy;
   this.bare = 0;
-  this.density = getRandomInt(6,16);
-
+  this.density = getRandomInt(2,16);
+  //
+  this.col = getRandom(180,360);
+  //
   this.display = function() {
     stroke('#8dd043');
     fill('#5f7546');
@@ -129,8 +137,8 @@ function stem(xx,yy) {
         push();
         translate(xPetal,yPetal);
         rotate((PI/2)-angle);
-        stroke('#ff2828');
-        fill('#522f2f');
+        stroke(this.col,100,100);
+        fill(this.col,70,50);
         ellipse(0,0,20,10);
         line(-15,0,0,0);
         pop();
@@ -146,7 +154,7 @@ function stem(xx,yy) {
       this.y1 = mouseY;
       if (this.bare == 0) {
         for (var i = 0; i<this.density; i++) {
-          obj_petal.push(new petal(this.x1,this.y1));
+          obj_petal.push(new petal(this.x1,this.y1,this.col));
         }
       }
       this.bare = 1;
@@ -158,7 +166,6 @@ function stem(xx,yy) {
     this.xP += (this.x1-this.xP)/5;
     this.yP += (this.y1-this.yP)/5;
   };
-
 
 }
 
