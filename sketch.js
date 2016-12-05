@@ -4,6 +4,7 @@ var shakeAmt = 10;
 var lastHeld = 38; //doubles as both an identifier and color
 var post1 = 0;
 var post2 = 0;
+var whoWin = 2;
 var canScore = 0;
 
 //score
@@ -14,6 +15,7 @@ function setup() {
   createCanvas(window.innerWidth,window.innerHeight);
   playerIMG = loadImage("assets/p1.png");
   player2IMG = loadImage("assets/p2.png");
+  crownIMG = loadImage("assets/crown.png");
 
   post1 = (width/2)-100;
   post2 = (width/2)+100;
@@ -38,6 +40,9 @@ function setup() {
   player2.setCollider("circle", 0,0, 20);
   player2.addImage("normal", player2IMG);
 
+  crown = createSprite(-10,-10);
+  crown.addImage("normal",crownIMG);
+
   ball = createSprite(width/2,50);
   ball.held = 0; //functions like "can it be held?"
   ball.isHeld = 0;
@@ -49,6 +54,25 @@ function setup() {
     fill(lastHeld,62,99);
     stroke(255);
     ellipse(0,0,40);
+  }
+
+  control1 = createSprite(0,0);
+  control1.draw = function() {
+    colorMode(HSB);
+    fill(227,10,60);
+    textAlign(CENTER);
+    textSize(15);
+    noStroke();
+    text("Arrow Keys +\n M to shoot \n Press M to dismiss",0,-80);
+  }
+  control2 = createSprite(0,0);
+  control2.draw = function() {
+    colorMode(HSB);
+    fill(227,10,60);
+    textAlign(CENTER);
+    textSize(15);
+    noStroke();
+    text("WASD +\n F to shoot \n Press F to dismiss",0,-80);
   }
 
 }
@@ -72,18 +96,51 @@ function draw() {
 
 
   screenShake();
+  crownMove();
+  control1Move();
   player1Move();
   player2Move();
   ballMove();
   drawParticle();
   drawSprites();
 
-  if ((p1 > 9) || (p2 > 9)) {
+  if (p1 > 9) {
     p1 = 0; p2 = 0;
+    whoWin = 0;
   }
+  if (p2 > 9) {
+    p1 = 0; p2 = 0;
+    whoWin = 1;
+  }
+
   canScore --;
 
 
+}
+function control1Move() {
+  control1.position.x = player1.position.x;
+  control1.position.y = player1.position.y;
+  if (keyDown("m")) {
+    control1.remove();
+  }
+  control2.position.x = player2.position.x;
+  control2.position.y = player2.position.y;
+  if (keyDown("f")) {
+    control2.remove();
+  }
+}
+function crownMove() {
+  if (whoWin == 0) {
+    crown.position.x = player1.position.x;
+    crown.position.y = player1.position.y - 55;
+  }
+  if (whoWin == 1) {
+    crown.position.x = player2.position.x;
+    crown.position.y = player2.position.y - 55;
+  }
+  if (whoWin == 2) {
+    crown.position.x = -100;
+  }
 }
 
 function ballMove() {
@@ -144,12 +201,14 @@ function ballMove() {
      {
        shakeAmt = 20;
        canScore = 10;
-       createBurst2(10,ball.position.x,ball.position.y);
-       createBurst(10,ball.position.x,ball.position.y);
-       if (lastHeld == 0)
-        p1++;
-       if (lastHeld == 232)
-        p2++;
+       createBurst3(20,ball.position.x,ball.position.y);
+       createBurst(20,ball.position.x,ball.position.y);
+       if (lastHeld == 0) {
+          p1++;
+        }
+       if (lastHeld == 232) {
+          p2++;
+        }
      }
 
 }

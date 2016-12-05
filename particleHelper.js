@@ -5,9 +5,15 @@ function createBurst(amt,x,y) {
     part.push(new pBurst(x,y));
   }
 }
+
 function createBurst2(amt,x,y) {
   for (var i = 0; i<amt; i++) {
     part.push(new pBurst2(x,y));
+  }
+}
+function createBurst3(amt,x,y) {
+  for (var i = 0; i<amt; i++) {
+    part.push(new pBurst3(x,y));
   }
 }
 function createflame(amt,x,y) {
@@ -74,6 +80,42 @@ function pBurst2(xx,yy) {
     push();
     translate(this.x,this.y);
     rotate(this.x/20);
+    rect(0,0,this.rad,this.rad);
+    pop();
+  };
+
+  this.move = function() {
+    this.vsp += this.gravity;
+    this.x += this.hsp;
+    this.y += this.vsp;
+    this.rad -= getRandom(0.5,1);
+    if (this.rad < 0) {
+      this.dead = 1;
+    }
+    if (this.y > height) {
+      this.dead = 1;
+    }
+  };
+}
+
+function pBurst3(xx,yy) {
+  this.x = xx;
+  this.y = yy;
+  this.dead = 0;
+  this.rad = getRandom(40,80);
+  this.gravity = 0.3;
+  this.hsp = getRandom(-20,20);
+  this.vsp = getRandom(-20,10);
+  this.col = getRandom(0,360);
+
+  this.display = function() {
+    colorMode(HSB);
+    fill(this.col,62,99);
+    noStroke();
+    rectMode(CENTER);
+    push();
+    translate(this.x,this.y);
+    rotate(this.x/50);
     rect(0,0,this.rad,this.rad);
     pop();
   };
