@@ -1,4 +1,4 @@
-/* @font-face { font-family: Delicious; src: url('Delicious-Roman.otf'); } */
+@font-face { font-family: ObjectSans; src: url('ObjectSans.otf'); }
  
 html, body {
 	width: 100%;
@@ -7,10 +7,12 @@ html, body {
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
-	background-color:#161119;
-	color:#F2F2FC;
+	background-color:#2A2A33;
+/* 		#161119; */
+	color:#BCB3B1;
 	font-size: 25px;
 	line-height: 1.4;
+	text-align: center;
 }
 
 .content {
@@ -25,10 +27,13 @@ html, body {
 	padding-bottom: 100px;
 }
 
-h2 {
+h1, h2 {
 	margin: 0px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	font-family: ObjectSans;
+	text-align: center;
+	color: #E54B4B;
 }
 
 .text-container {
