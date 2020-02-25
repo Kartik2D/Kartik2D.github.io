@@ -2,7 +2,7 @@ Vue.component('vid', {
   props: ['path'],
   template: `
   	<div class="vid-container">
- 	<video loop class="vid" onclick="play()" onmouseover="play()" autoplay muted playsinline>
+ 	<video loop autoplay class="vid" onclick="play()" onmouseover="play()" muted playsinline>
 		<source :src='path' type="video/mp4">
 	</video>
 	</div>
