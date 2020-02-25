@@ -36,6 +36,16 @@ h1, h2 {
 	color: #E54B4B;
 }
 
+a {
+	font-family: ObjectSans;
+	text-decoration: underline;
+	color:#8789C0;
+}
+
+b {
+font-family: ObjectSans;
+}
+
 .text-container {
 	padding-top: 30px;
 	padding-bottom: 30px;
