@@ -13,7 +13,7 @@ Vue.component('vidcontrol', {
   props: ['path'],
   template: `
   	<div class="vid-container">
- 	<video class="vid" controls playsinline>
+ 	<video class="vid" controls loop playsinline>
 		<source :src='path' type="video/mp4">
 	</video>
 	</div>
