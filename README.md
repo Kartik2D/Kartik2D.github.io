@@ -116,49 +116,38 @@ Edit the `portfolioData` array in `src/portfolio-app.js`:
 }
 ```
 
-## 🚀 Deployment
-
-The site is automatically deployed to GitHub Pages. For manual deployment:
-
-1. Ensure all assets are in the correct paths
-2. Push to the `master` branch
-3. GitHub Pages will serve the site automatically
-
-## 📄 License
-
-MIT License - feel free to use this as a template for your own portfolio!
-
-## 🤝 Contact
-
-- **Email**: kartikvinayak3@gmail.com
-- **Portfolio**: [kartik2d.github.io](https://kartik2d.github.io)
-- **CanvasCode**: [Vector graphics editor](https://kartik2d.github.io/CanvasCode)
-
----
-
-Built with ❤️ using [Lit](https://lit.dev) web components
-
 ## 🚀 GitHub Pages Deployment
 
-This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+This project builds to a `dist` branch for GitHub Pages deployment.
 
-### Automatic Deployment
+### Deployment
 
-1. Push your changes to the `master` branch
-2. GitHub Actions will automatically build and deploy your site
-3. Your site will be available at `https://kartik2d.github.io`
-
-### Manual Deployment
-
-If you prefer to deploy manually:
+To build and deploy your site:
 
 ```bash
 # Install dependencies
 npm install
 
-# Build and deploy
+# Build and deploy to dist branch
 npm run deploy
 ```
+
+This will:
+
+1. Build your project using Vite
+2. Push the built files to the `dist` branch
+3. GitHub Pages will serve from the `dist` branch
+
+### Setting up GitHub Pages
+
+1. Go to your repository settings on GitHub
+2. Navigate to the "Pages" section
+3. Set the source to "Deploy from a branch"
+4. Select the `dist` branch as the source
+5. Select `/ (root)` as the folder
+6. Save the settings
+
+Your site will be available at: `https://kartik2d.github.io`
 
 ## 🛠️ Development
 
@@ -195,7 +184,7 @@ dist/                 # Build output (generated)
 
 - **Vite**: Modern build tool with TypeScript support
 - **Lit**: Lightweight web components library
-- **GitHub Pages**: Automatic deployment via GitHub Actions
+- **GitHub Pages**: Deploy from `dist` branch
 - **TypeScript**: Type-safe development
 
 ## 📱 Features
@@ -203,9 +192,23 @@ dist/                 # Build output (generated)
 - Responsive design
 - Modern web components architecture
 - Optimized build with code splitting
-- Automatic deployment to GitHub Pages
+- Simple deployment to GitHub Pages
 - Progressive Web App ready
 
 ## 🌐 Live Site
 
 Visit the live portfolio at: [https://kartik2d.github.io](https://kartik2d.github.io)
+
+## 📄 License
+
+MIT License - feel free to use this as a template for your own portfolio!
+
+## 🤝 Contact
+
+- **Email**: kartikvinayak3@gmail.com
+- **Portfolio**: [kartik2d.github.io](https://kartik2d.github.io)
+- **CanvasCode**: [Vector graphics editor](https://kartik2d.github.io/CanvasCode)
+
+---
+
+Built with ❤️ using [Lit](https://lit.dev) web components
