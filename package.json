@@ -3,13 +3,15 @@
   "version": "2.0.0",
   "description": "Modern portfolio website built with Lit web components",
   "main": "src/portfolio-app.js",
+  "homepage": "https://Kartik2D.github.io/",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "serve": "vite preview --port 8000",
-    "deploy": "npm run build && gh-pages -d dist -b dist"
+    "serve": "vite preview --port 8000"
   },
   "keywords": [
     "portfolio",
