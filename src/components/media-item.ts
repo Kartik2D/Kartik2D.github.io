@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 import type { Project } from "../types";
 
 @customElement("media-item")
@@ -7,6 +7,12 @@ export class MediaItem extends LitElement {
   @property({ type: Object }) project!: Project;
   @property({ type: String }) itemId!: string;
   @property({ type: Boolean }) isSelected = false;
+  @state() private _isHovered = false;
+  @state() private _isDragging = false;
+
+  private _dragStartX = 0;
+  private _dragStartY = 0;
+  private _dragThreshold = 10; // pixels
 
   static styles = css`
     :host {
@@ -18,7 +24,8 @@ export class MediaItem extends LitElement {
       transition: all 0.3s ease;
     }
 
-    :host(:hover) {
+    :host(:hover),
+    :host([hovered]) {
       transform: scale(1.02);
       z-index: 2;
     }
@@ -36,15 +43,21 @@ export class MediaItem extends LitElement {
     }
 
     video,
-    img {
+    img,
+    iframe {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      border: none;
     }
 
     :host(:hover) video,
-    :host(:hover) img {
+    :host(:hover) img,
+    :host(:hover) iframe,
+    :host([hovered]) video,
+    :host([hovered]) img,
+    :host([hovered]) iframe {
       transform: scale(1.05);
     }
 
@@ -60,7 +73,8 @@ export class MediaItem extends LitElement {
       transition: transform 0.3s ease;
     }
 
-    :host(:hover) .overlay {
+    :host(:hover) .overlay,
+    :host([hovered]) .overlay {
       transform: translateY(0);
     }
 
@@ -84,6 +98,73 @@ export class MediaItem extends LitElement {
     }
   `;
 
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("touchstart", this._handleTouchStart, {
+      passive: false,
+    });
+    this.addEventListener("touchmove", this._handleTouchMove, {
+      passive: false,
+    });
+    this.addEventListener("touchend", this._handleTouchEnd);
+    this.addEventListener("mouseenter", this._handleMouseEnter);
+    this.addEventListener("mouseleave", this._handleMouseLeave);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener("touchstart", this._handleTouchStart);
+    this.removeEventListener("touchmove", this._handleTouchMove);
+    this.removeEventListener("touchend", this._handleTouchEnd);
+    this.removeEventListener("mouseenter", this._handleMouseEnter);
+    this.removeEventListener("mouseleave", this._handleMouseLeave);
+  }
+
+  private _handleTouchStart(event: TouchEvent) {
+    const touch = event.touches[0];
+    this._dragStartX = touch.clientX;
+    this._dragStartY = touch.clientY;
+    this._isDragging = false;
+
+    // Set hover state on touch start
+    this._isHovered = true;
+  }
+
+  private _handleTouchMove(event: TouchEvent) {
+    const touch = event.touches[0];
+    const deltaX = Math.abs(touch.clientX - this._dragStartX);
+    const deltaY = Math.abs(touch.clientY - this._dragStartY);
+
+    // If movement exceeds threshold, consider it dragging
+    if (deltaX > this._dragThreshold || deltaY > this._dragThreshold) {
+      this._isDragging = true;
+      // Keep hover state active during drag
+      this._isHovered = true;
+    }
+  }
+
+  private _handleTouchEnd(event: TouchEvent) {
+    // Small delay to allow hover effects to be visible
+    setTimeout(() => {
+      this._isHovered = false;
+    }, 300);
+
+    // If it wasn't a drag, treat as a click
+    if (!this._isDragging) {
+      this._handleClick();
+    }
+
+    this._isDragging = false;
+  }
+
+  private _handleMouseEnter() {
+    this._isHovered = true;
+  }
+
+  private _handleMouseLeave() {
+    this._isHovered = false;
+  }
+
   private _handleClick() {
     this.dispatchEvent(
       new CustomEvent("item-select", {
@@ -91,6 +172,16 @@ export class MediaItem extends LitElement {
         bubbles: true,
       })
     );
+  }
+
+  private _getYouTubeEmbedUrl(url: string): string {
+    // Convert YouTube watch URL to privacy-enhanced embed URL
+    const videoId = url.match(
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/
+    )?.[1];
+    return videoId
+      ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`
+      : url;
   }
 
   render() {
@@ -107,6 +198,15 @@ export class MediaItem extends LitElement {
                 autoplay
                 playsinline
               ></video>
+            `
+          : primaryMedia.type === "youtube"
+          ? html`
+              <iframe
+                src=${this._getYouTubeEmbedUrl(primaryMedia.src)}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             `
           : html`
               <img
@@ -126,6 +226,9 @@ export class MediaItem extends LitElement {
   updated(changedProperties: Map<string, any>) {
     if (changedProperties.has("isSelected")) {
       this.toggleAttribute("selected", this.isSelected);
+    }
+    if (changedProperties.has("_isHovered")) {
+      this.toggleAttribute("hovered", this._isHovered);
     }
   }
 }

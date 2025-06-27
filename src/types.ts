@@ -1,6 +1,6 @@
 export interface MediaItem {
   src: string;
-  type: "video" | "image";
+  type: "video" | "image" | "youtube";
   alt?: string;
 }
 

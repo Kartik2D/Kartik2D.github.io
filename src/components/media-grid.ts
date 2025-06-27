@@ -13,7 +13,9 @@ export class MediaGrid extends LitElement {
       display: block;
       height: 100vh;
       overflow-y: auto;
+      overflow-x: hidden;
       padding: 0;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .grid {
@@ -32,6 +34,11 @@ export class MediaGrid extends LitElement {
 
     /* Responsive breakpoints */
     @media (max-width: 768px) {
+      :host {
+        /* Improve touch scrolling performance on mobile */
+        scroll-behavior: smooth;
+      }
+
       .grid media-item {
         flex: 1 1 100%;
         min-height: 200px;
@@ -48,6 +55,12 @@ export class MediaGrid extends LitElement {
     @media (min-width: 1201px) {
       .grid media-item {
         flex: 1 1 calc(33.333% - 0px);
+      }
+    }
+
+    @media (min-width: 1800px) {
+      .grid media-item {
+        flex: 1 1 calc(25% - 0px);
       }
     }
   `;
