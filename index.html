@@ -1,233 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Kartik Vinayak's Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kartik Vinayak's Portfolio - Motion Graphics & Game Development"
+    />
+    <meta name="author" content="Kartik Vinayak" />
+    <title>Kartik Vinayak - Motion Graphics & Game Dev Portfolio</title>
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Modern fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Variables and Base Styles -->
+    <link rel="stylesheet" href="./index.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Kartik Vinayak - Motion Graphics & Game Dev Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore my work in motion graphics, game development, and interactive design"
+    />
+    <meta property="og:image" content="./mov/me.jpg" />
+    <meta property="og:url" content="https://kartik2d.github.io" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Kartik Vinayak - Motion Graphics & Game Dev Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore my work in motion graphics, game development, and interactive design"
+    />
+    <meta name="twitter:image" content="./mov/me.jpg" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#6366f1" />
+
+    <!-- Performance optimization -->
+    <link rel="dns-prefetch" href="//kartik2d.github.io" />
+    <link rel="dns-prefetch" href="//youtu.be" />
+    <link rel="dns-prefetch" href="//kartik2d.itch.io" />
   </head>
 
   <body>
-    <nav class="top-nav">
-      <a href="https://kartik2d.github.io/CanvasCode" class="nav-link"
-        >CanvasCode - Vector graphics editor with programmable tools</a
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus-visible"
+      >Skip to main content</a
+    >
+
+    <!-- Main Portfolio App -->
+    <portfolio-app id="main-content"></portfolio-app>
+
+    <!-- Loading fallback for older browsers -->
+    <noscript>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          text-align: center;
+          padding: 2rem;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            sans-serif;
+        "
       >
-    </nav>
-    <div class="content" id="app">
-      <div class="card">
-        <div class="text-container">
-          <div class="card">
-            <img src="mov/me.jpg" class="propic" />
-            <b>Kartik Vinayak</b><br /><br />
-            Motion Graphics / Game Dev<br />
-            <br />
-            <a href="mailto: kartikvinayak3@gmail.com" class="myButton">Email</a
-            ><br />
-          </div>
-          <madewithcolor>Tools I like:</madewithcolor>
-          <madewith>After Effects</madewith>
-          <madewith>Blender</madewith>
-          <madewith>Unity</madewith>
-          <madewith>Photoshop</madewith>
-          <madewith>Illustrator</madewith>
-          <madewith>Affinity Designer</madewith>
-          <madewith>Gamemaker Studio</madewith>
-          <madewith>Lua</madewith>
-          <madewith>Javascript</madewith>
-          <madewith>Godot</madewith>
-        </div>
+        <h1>Kartik Vinayak</h1>
+        <p>Motion Graphics / Game Dev</p>
+        <p>Please enable JavaScript to view my portfolio.</p>
+        <a
+          href="mailto:kartikvinayak3@gmail.com"
+          style="
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+          "
+          >Contact Me</a
+        >
       </div>
+    </noscript>
 
-      <div class="card">
-        <vidcontrol path="mov/Hello.mp4"></vidcontrol>
+    <!-- Portfolio App - Vite will handle the module loading -->
+    <script type="module" src="/src/portfolio-app.ts"></script>
 
-        <div class="text-container">
-          The animation above is simply meant to showcase my animation timing
-          skills. I paid special attention to offset the timing of every
-          animated element.
-
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>After Effects</madewith>
-          <br /><br /><a href="https://youtu.be/is6Ochvkjx8" class="myButton"
-            >Youtube</a
-          >
-        </div>
-      </div>
-
-      <div class="card">
-        <vidcontrol path="mov/animatic.mp4"></vidcontrol>
-
-        <div class="text-container">
-          Animation created for AmuseLabs. This is an animated advertisement
-          created for social media meant to introduce a new feature.
-
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>After Effects</madewith>
-        </div>
-      </div>
-
-      <div class="card">
-        <vidcontrol path="mov/lahacksHYPE.mp4"></vidcontrol>
-        <div class="double">
-          <div class="double-vid-container">
-            <kvimg path="mov/lahacks2.png"></kvimg>
-          </div>
-          <div class="double-vid-container">
-            <kvimg path="mov/lahacks3.png"></kvimg>
-          </div>
-        </div>
-        <kvimg path="mov/lahacks1.png"></kvimg>
-        <div class="text-container">
-          My branding work for the #1 hackathon in Socal: <b>LA Hacks!</b>
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Illustrator</madewith>
-          <madewith>After Effects</madewith>
-        </div>
-        <vid path="mov/lahacks.mp4"></vid>
-        <div class="text-container">
-          Above is a game jam project I did for LA Hacks. It was speed project
-          which was programmed in under an hour. It makes use of game juice
-          principles for a satisfying feel.
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Gamemaker Studio</madewith>
-          <br /><br /><a href="/LaHacksMinigame" class="myButton"
-            >You can play it online here!</a
-          >
-        </div>
-      </div>
-
-      <div class="card">
-        <vid path="mov/brush.mp4"></vid>
-        <div class="double">
-          <div class="double-vid-container">
-            <kvimg path="mov/brush1.jpeg"></kvimg>
-          </div>
-          <div class="double-vid-container">
-            <kvimg path="mov/brush2.jpeg"></kvimg>
-          </div>
-        </div>
-
-        <div class="text-container">
-          Above is Zen Painter, a project I did to learn how surfaces work in
-          Gamemaker Studio. Painting is generative, meaning brushes will take
-          into account mouse speed and angle of the stroke.
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Gamemaker Studio</madewith>
-          <br /><br /><a
-            href="https://kartik2d.itch.io/zen-painter"
-            class="myButton"
-            >Play it online here!</a
-          >
-        </div>
-      </div>
-
-      <div class="card">
-        <vid path="mov/flower.mp4"></vid>
-
-        <div class="text-container">
-          Above is Flower, a project I did to learn p5.js. It's a humble little
-          webtoy, inspired by creators such as MrDoob. Kids really like this
-          one.
-
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Javascript</madewith>
-          <madewith>P5.js</madewith>
-
-          <br /><br /><a href="/flower" class="myButton"
-            >Play it online here!</a
-          >
-        </div>
-      </div>
-
-      <div class="card">
-        <vid path="mov/mov3.mp4"></vid>
-
-        <div class="text-container">
-          The space shooter project above is an exageration of game juice
-          principles. How do I design incredibly fun movement? What graphical
-          elements should I exaggerate? I specifically went overboard on the
-          screenshake and chromatic abberation for the chaotic feeling.
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Lua</madewith>
-          <br /><br /><a class="myButton">Playable online demo coming soon!</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <vid path="mov/mov.mp4"></vid>
-
-        <div class="double">
-          <div class="double-vid-container">
-            <vid path="mov/mov2.mp4"></vid>
-          </div>
-          <div class="double-vid-container">
-            <vid path="mov/basketball3.mp4"></vid>
-          </div>
-        </div>
-
-        <div class="text-container">
-          My experimental basketball game! This game is an exploration of how to
-          program charming reactionary elements with primitive animation. For
-          example: the bendy goalpost rope seen above is a simply a bezier curve
-          with
-          <b>f=-kx</b> applied to the midpoint.
-
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Lua</madewith>
-
-          <br /><br /><a class="myButton">Playable online demo coming soon!</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <kvimg path="mov/painting2.jpeg"></kvimg>
-        <div class="double">
-          <div class="double-vid-container">
-            <kvimg path="mov/painting1.jpeg"></kvimg>
-            <kvimg path="mov/lahackspromo.png"></kvimg>
-          </div>
-          <div class="double-vid-container">
-            <kvimg path="mov/painting3.jpeg"></kvimg>
-            <kvimg path="mov/handguy.png"></kvimg>
-          </div>
-        </div>
-        <div class="text-container">
-          I also paint.
-          <br /><br />
-          <madewithcolor>Tools Used:</madewithcolor>
-          <madewith>Photoshop</madewith>
-        </div>
-      </div>
-
-      <br /><br /><br />
-      <div class="card">
-        <div class="double">
-          <div class="double-vid-container">
-            <vid path="mov/selfPortait.mp4"></vid>
-          </div>
-
-          <div class="double-vid-container">
-            <div class="text-container">
-              <div class="text-container">
-                Thank you for looking at my stuff! If you liked what you saw,
-                send me an
-                <a href="mailto: kartikvinayak3@gmail.com" class="myButton"
-                  >Email</a
-                >!
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Service Worker for PWA (optional) -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          // Uncomment when you want to add PWA support
+          // navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
   </body>
-  <!-- development version, includes helpful console warnings -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="index.js"></script>
 </html>
