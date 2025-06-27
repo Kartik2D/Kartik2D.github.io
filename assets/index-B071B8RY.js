@@ -1,15 +1,15 @@
-import{f as e,u as t,i,a as r,x as a}from"./vendor-CV6DCs31.js";!function(){const e=document.createElement("link").relList;if(!(e&&e.supports&&e.supports("modulepreload"))){for(const e of document.querySelectorAll('link[rel="modulepreload"]'))t(e);new MutationObserver(e=>{for(const i of e)if("childList"===i.type)for(const e of i.addedNodes)"LINK"===e.tagName&&"modulepreload"===e.rel&&t(e)}).observe(document,{childList:!0,subtree:!0})}function t(e){if(e.ep)return;e.ep=!0;const t=function(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),"use-credentials"===e.crossOrigin?t.credentials="include":"anonymous"===e.crossOrigin?t.credentials="omit":t.credentials="same-origin",t}(e);fetch(e.href,t)}}();
+import{f as e,u as t,i,a,x as r}from"./vendor-CV6DCs31.js";!function(){const e=document.createElement("link").relList;if(!(e&&e.supports&&e.supports("modulepreload"))){for(const e of document.querySelectorAll('link[rel="modulepreload"]'))t(e);new MutationObserver(e=>{for(const i of e)if("childList"===i.type)for(const e of i.addedNodes)"LINK"===e.tagName&&"modulepreload"===e.rel&&t(e)}).observe(document,{childList:!0,subtree:!0})}function t(e){if(e.ep)return;e.ep=!0;const t=function(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),"use-credentials"===e.crossOrigin?t.credentials="include":"anonymous"===e.crossOrigin?t.credentials="omit":t.credentials="same-origin",t}(e);fetch(e.href,t)}}();
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}):customElements.define(e,t)},s={attribute:!0,type:String,converter:t,reflect:!1,hasChanged:e},n=(e=s,t,i)=>{const{kind:r,metadata:a}=i;let o=globalThis.litPropertyMetadata.get(a);if(void 0===o&&globalThis.litPropertyMetadata.set(a,o=new Map),"setter"===r&&((e=Object.create(e)).wrapped=!0),o.set(i.name,e),"accessor"===r){const{name:r}=i;return{set(i){const a=t.get.call(this);t.set.call(this,i),this.requestUpdate(r,a,e)},init(t){return void 0!==t&&this.C(r,void 0,e,t),t}}}if("setter"===r){const{name:r}=i;return function(i){const a=this[r];t.call(this,i),this.requestUpdate(r,a,e)}}throw Error("Unsupported decorator location: "+r)};
+const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)}):customElements.define(e,t)},n={attribute:!0,type:String,converter:t,reflect:!1,hasChanged:e},s=(e=n,t,i)=>{const{kind:a,metadata:r}=i;let o=globalThis.litPropertyMetadata.get(r);if(void 0===o&&globalThis.litPropertyMetadata.set(r,o=new Map),"setter"===a&&((e=Object.create(e)).wrapped=!0),o.set(i.name,e),"accessor"===a){const{name:a}=i;return{set(i){const r=t.get.call(this);t.set.call(this,i),this.requestUpdate(a,r,e)},init(t){return void 0!==t&&this.C(a,void 0,e,t),t}}}if("setter"===a){const{name:a}=i;return function(i){const r=this[a];t.call(this,i),this.requestUpdate(a,r,e)}}throw Error("Unsupported decorator location: "+a)};
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function d(e){return(t,i)=>"object"==typeof i?n(e,t,i):((e,t,i)=>{const r=t.hasOwnProperty(i);return t.constructor.createProperty(i,e),r?Object.getOwnPropertyDescriptor(t,i):void 0})(e,t,i)}
+ */function d(e){return(t,i)=>"object"==typeof i?s(e,t,i):((e,t,i)=>{const a=t.hasOwnProperty(i);return t.constructor.createProperty(i,e),a?Object.getOwnPropertyDescriptor(t,i):void 0})(e,t,i)}
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -159,7 +159,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
     white-space: nowrap;
     border: 0;
   }
-`,v=[{id:"rhythm-game",title:"Rhythm Game",description:"Springy rhythm game featuring DSP timing mechanics. Fun and bouncy gameplay with tight audio synchronization.",media:[{src:"mov/dog.mp4",type:"video"}],tags:["Game Development","Audio","Interactive"],featured:!0},{id:"timing-practice",title:"Timing Practice",description:"Motion study exploring staggered keyframes and snappy easing.",media:[{src:"mov/Hello.mp4",type:"video"},{src:"https://youtu.be/is6Ochvkjx8",type:"youtube"}],links:[{href:"https://youtu.be/is6Ochvkjx8",label:"Watch on YouTube",type:"primary"}],tags:["Motion Graphics","Animation"],featured:!0},{id:"amuselabs-promo",title:"AmuseLabs Promo",description:"30-second social spot introducing a new crossword feature.",media:[{src:"mov/amuselabs_optimized.mp4",type:"video"},{src:"https://www.youtube.com/watch?v=hyWDx1RaeU0",type:"youtube"}],links:[{href:"https://youtu.be/hyWDx1RaeU0",label:"Watch on YouTube",type:"primary"}],tags:["Commercial","Motion Graphics"],featured:!0},{id:"la-hacks-branding",title:"LA Hacks Branding",description:"Event package – hype video, icons, and social graphics.",media:[{src:"mov/lahacksHYPE_optimized.mp4",type:"video"},{src:"mov/lahacks2.png",type:"image"}],tags:["Branding","Motion Graphics","Event"]},{id:"la-hacks-minigame",title:"LA Hacks Minigame",description:"One-hour jam project focused on juicy game feel.",media:[{src:"mov/lahacks_optimized.mp4",type:"video"}],links:[{href:"LaHacksMinigame/index.html",label:"Play Online",type:"primary"}],tags:["Game Development","Game Jam"]},{id:"zen-painter",title:"Zen Painter",description:"Generative brush toy that reacts to stroke speed and angle.",media:[{src:"mov/brush.mp4",type:"video"},{src:"mov/brush1.jpeg",type:"image"}],links:[{href:"https://kartik2d.itch.io/zen-painter",label:"Play on Itch.io",type:"primary"}],tags:["Interactive","Generative Art"],featured:!0},{id:"flower-p5js",title:"Flower (p5.js)",description:"Interactive doodle inspired by early WebGL experiments.",media:[{src:"mov/flower_web_optimized.mp4",type:"video"}],links:[{href:"flower/index.html",label:"Try Interactive Demo",type:"primary"}],tags:["Interactive","p5.js","WebGL"]},{id:"space-shooter",title:"Space Shooter",description:"Arcade prototype with heavy screen shake and chromatic aberration.",media:[{src:"mov/mov3.mp4",type:"video"}],tags:["Game Development","Prototype"]},{id:"basketball-prototype",title:"Basketball Prototype",description:"Physics toy featuring spring-loaded nets and bendy ropes.",media:[{src:"mov/mov.mp4",type:"video"},{src:"mov/basketball3.mp4",type:"video"}],tags:["Game Development","Physics"]},{id:"digital-paintings",title:"Digital Paintings",description:"Assorted personal illustrations.",media:[{src:"mov/painting1.jpeg",type:"image"},{src:"mov/painting2.jpeg",type:"image"}],tags:["Illustration","Digital Art"]}];var g=Object.getOwnPropertyDescriptor;let u=class extends r{render(){return a`
+`,g=[{id:"rhythm-game",title:"Rhythm Game",description:"Springy rhythm game featuring DSP timing mechanics. Fun and bouncy gameplay with tight audio synchronization.",thumbnail:{src:"mov/dog.mp4",type:"video"},media:[],tags:["Game Development","Audio","Interactive"],featured:!0},{id:"timing-practice",title:"Timing Practice",description:"Motion study exploring staggered keyframes and snappy easing.",thumbnail:{src:"mov/Hello.mp4",type:"video"},media:[{src:"https://youtu.be/is6Ochvkjx8",type:"youtube"}],links:[{href:"https://youtu.be/is6Ochvkjx8",label:"Watch on YouTube",type:"primary"}],tags:["Motion Graphics","Animation"],featured:!0},{id:"amuselabs-promo",title:"AmuseLabs Promo",description:"30-second social spot introducing a new crossword feature.",thumbnail:{src:"mov/amuselabs_optimized.mp4",type:"video"},media:[{src:"https://www.youtube.com/watch?v=hyWDx1RaeU0",type:"youtube"}],links:[{href:"https://youtu.be/hyWDx1RaeU0",label:"Watch on YouTube",type:"primary"}],tags:["Commercial","Motion Graphics"],featured:!0},{id:"la-hacks-branding",title:"LA Hacks Branding",description:"Event package – hype video, icons, and social graphics.",thumbnail:{src:"mov/lahacksHYPE_optimized.mp4",type:"video"},media:[{src:"mov/lahacks1.png",type:"image"},{src:"mov/lahacks2.png",type:"image"},{src:"mov/lahacks3.png",type:"image"}],tags:["Branding","Motion Graphics","Event"]},{id:"canvas-code",title:"CanvasCode",description:"Vector graphics editor with programmable tools built in TypeScript.",thumbnail:{src:"mov/CanvasCode.mp4",type:"video"},media:[],links:[{href:"https://kartik2d.github.io/CanvasCode/",label:"Try Live Demo",type:"primary"}],tags:["Interactive","TypeScript","Vector Graphics","Tools"],featured:!0},{id:"la-hacks-minigame",title:"LA Hacks Minigame",description:"One-hour jam project focused on juicy game feel.",thumbnail:{src:"mov/lahacks_optimized.mp4",type:"video"},media:[],links:[{href:"LaHacksMinigame/index.html",label:"Play Online",type:"primary"}],tags:["Game Development","Game Jam"]},{id:"zen-painter",title:"Zen Painter",description:"Generative brush toy that reacts to stroke speed and angle.",thumbnail:{src:"mov/brush.mp4",type:"video"},media:[{src:"mov/brush1.jpeg",type:"image"}],links:[{href:"https://kartik2d.itch.io/zen-painter",label:"Play on Itch.io",type:"primary"}],tags:["Interactive","Generative Art"],featured:!0},{id:"flower-p5js",title:"Flower (p5.js)",description:"Interactive doodle inspired by early WebGL experiments.",thumbnail:{src:"mov/flower_web_optimized.mp4",type:"video"},media:[],links:[{href:"flower/index.html",label:"Try Interactive Demo",type:"primary"}],tags:["Interactive","p5.js","WebGL"]},{id:"space-shooter",title:"Space Shooter",description:"Arcade prototype with heavy screen shake and chromatic aberration.",thumbnail:{src:"mov/mov3.mp4",type:"video"},media:[],tags:["Game Development","Prototype"]},{id:"basketball-prototype",title:"Basketball Prototype",description:"Physics toy featuring spring-loaded nets and bendy ropes.",thumbnail:{src:"mov/mov.mp4",type:"video"},media:[{src:"mov/basketball3.mp4",type:"video"}],tags:["Game Development","Physics"]},{id:"digital-painting-1",title:"Digital Painting I",description:"Personal digital illustration.",thumbnail:{src:"mov/painting1.jpeg",type:"image"},media:[],tags:["Illustration","Digital Art"]},{id:"digital-painting-2",title:"Digital Painting II",description:"Personal digital illustration.",thumbnail:{src:"mov/painting2.jpeg",type:"image"},media:[],tags:["Illustration","Digital Art"]},{id:"digital-painting-3",title:"Digital Painting III",description:"Personal digital illustration.",thumbnail:{src:"mov/painting3.jpeg",type:"image"},media:[],tags:["Illustration","Digital Art"]}];var v=Object.getOwnPropertyDescriptor;let u=class extends a{render(){return r`
       <header>
         <div class="header-content">
           <div class="brand">
@@ -235,7 +235,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           font-size: 0.8125rem;
         }
       }
-    `],u=((e,t,i,r)=>{for(var a,o=r>1?void 0:r?g(t,i):t,s=e.length-1;s>=0;s--)(a=e[s])&&(o=a(o)||o);return o})([o("app-header")],u);var b=Object.defineProperty,y=Object.getOwnPropertyDescriptor,f=(e,t,i,r)=>{for(var a,o=r>1?void 0:r?y(t,i):t,s=e.length-1;s>=0;s--)(a=e[s])&&(o=(r?a(t,i,o):a(o))||o);return r&&o&&b(t,i,o),o};let x=class extends r{constructor(){super(...arguments),this.visible=!1}render(){return a`
+    `],u=((e,t,i,a)=>{for(var r,o=a>1?void 0:a?v(t,i):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=r(o)||o);return o})([o("app-header")],u);var b=Object.defineProperty,y=Object.getOwnPropertyDescriptor,f=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?y(t,i):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&b(t,i,o),o};let x=class extends a{constructor(){super(...arguments),this.visible=!1}render(){return r`
       <div class="loading-content">
         <div class="spinner" aria-hidden="true"></div>
         <h2 class="loading-title">Kartik Vinayak</h2>
@@ -313,7 +313,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           font-size: 1.5rem;
         }
       }
-    `],f([d({type:Boolean})],x.prototype,"visible",2),x=f([o("loading-screen")],x);var _=Object.defineProperty,k=Object.getOwnPropertyDescriptor,j=(e,t,i,r)=>{for(var a,o=r>1?void 0:r?k(t,i):t,s=e.length-1;s>=0;s--)(a=e[s])&&(o=(r?a(t,i,o):a(o))||o);return r&&o&&_(t,i,o),o};let z=class extends r{constructor(){super(...arguments),this.isSelected=!1,this._isHovered=!1,this._isVisible=!1,this._handleTouchStart=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleTouchEnd=()=>{setTimeout(()=>{this._isHovered=!1},200)},this._handleMouseEnter=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleMouseLeave=()=>{this._isHovered=!1},this._handleClick=()=>{this.dispatchEvent(new CustomEvent("item-select",{detail:{projectId:this.project.id},bubbles:!0}))},this._handleVideoLoaded=e=>{const t=e.target;this._videoElement=t,document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}})),this._isVisible&&t.play().catch(()=>{})},this._handleVideoError=e=>{const t=e.target;console.warn(`Video failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageLoaded=e=>{const t=e.target;document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageError=e=>{const t=e.target;console.warn(`Image failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._setupIntersectionObserver=()=>{this._intersectionObserver=new IntersectionObserver(e=>{e.forEach(e=>{this._isVisible=e.isIntersecting,e.isIntersecting&&this._videoElement?this._videoElement.play().catch(()=>{}):!e.isIntersecting&&this._videoElement&&this._videoElement.pause()})},{threshold:.5,rootMargin:"50px"}),this._intersectionObserver.observe(this)}}connectedCallback(){super.connectedCallback(),this.addEventListener("click",this._handleClick),this.addEventListener("mouseenter",this._handleMouseEnter),this.addEventListener("mouseleave",this._handleMouseLeave),this.addEventListener("touchstart",this._handleTouchStart,{passive:!0}),this.addEventListener("touchend",this._handleTouchEnd,{passive:!0}),this._setupIntersectionObserver()}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("click",this._handleClick),this.removeEventListener("mouseenter",this._handleMouseEnter),this.removeEventListener("mouseleave",this._handleMouseLeave),this.removeEventListener("touchstart",this._handleTouchStart),this.removeEventListener("touchend",this._handleTouchEnd),this._intersectionObserver&&this._intersectionObserver.disconnect()}_renderMedia(){const e=this.project.media[0];if(!e)return a``;switch(e.type){case"video":return a`
+    `],f([d({type:Boolean})],x.prototype,"visible",2),x=f([o("loading-screen")],x);var k=Object.defineProperty,_=Object.getOwnPropertyDescriptor,j=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?_(t,i):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&k(t,i,o),o};let z=class extends a{constructor(){super(...arguments),this.isSelected=!1,this._isHovered=!1,this._isVisible=!1,this._handleTouchStart=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleTouchEnd=()=>{setTimeout(()=>{this._isHovered=!1},200)},this._handleMouseEnter=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleMouseLeave=()=>{this._isHovered=!1},this._handleClick=()=>{this.dispatchEvent(new CustomEvent("item-select",{detail:{projectId:this.project.id},bubbles:!0}))},this._handleVideoLoaded=e=>{const t=e.target;this._videoElement=t,document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}})),this._isVisible&&t.play().catch(()=>{})},this._handleVideoError=e=>{const t=e.target;console.warn(`Video failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageLoaded=e=>{const t=e.target;document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageError=e=>{const t=e.target;console.warn(`Image failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._setupIntersectionObserver=()=>{this._intersectionObserver=new IntersectionObserver(e=>{e.forEach(e=>{this._isVisible=e.isIntersecting,e.isIntersecting&&this._videoElement?this._videoElement.play().catch(()=>{}):!e.isIntersecting&&this._videoElement&&this._videoElement.pause()})},{threshold:.5,rootMargin:"50px"}),this._intersectionObserver.observe(this)}}connectedCallback(){super.connectedCallback(),this.addEventListener("click",this._handleClick),this.addEventListener("mouseenter",this._handleMouseEnter),this.addEventListener("mouseleave",this._handleMouseLeave),this.addEventListener("touchstart",this._handleTouchStart,{passive:!0}),this.addEventListener("touchend",this._handleTouchEnd,{passive:!0}),this._setupIntersectionObserver()}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("click",this._handleClick),this.removeEventListener("mouseenter",this._handleMouseEnter),this.removeEventListener("mouseleave",this._handleMouseLeave),this.removeEventListener("touchstart",this._handleTouchStart),this.removeEventListener("touchend",this._handleTouchEnd),this._intersectionObserver&&this._intersectionObserver.disconnect()}_renderMedia(){const e=this.project.thumbnail;if(!e)return r``;switch(e.type){case"video":return r`
           <video
             class="media-element"
             src=${e.src}
@@ -321,30 +321,32 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
             loop
             autoplay
             playsinline
-            preload="metadata"
+            preload="none"
             aria-label=${`Video preview for ${this.project.title}`}
             @loadedmetadata=${this._handleVideoLoaded}
             @error=${this._handleVideoError}
           ></video>
-        `;case"youtube":return a`
+        `;case"youtube":return r`
           <iframe
             class="media-element"
             src=${w(e.src)}
             frameborder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            loading="lazy"
             allowfullscreen
             title=${`YouTube video for ${this.project.title}`}
           ></iframe>
-        `;case"image":return a`
+        `;case"image":return r`
           <img
             class="media-element"
             src=${e.src}
             alt=${e.alt||this.project.title}
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             @load=${this._handleImageLoaded}
             @error=${this._handleImageError}
           />
-        `;default:return a``}}render(){return a`
+        `;default:return r``}}render(){return r`
       <div
         class="media-container"
         role="button"
@@ -357,9 +359,9 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           <h3 class="media-title">${this.project.title}</h3>
           <p class="media-description">${this.project.description}</p>
 
-          ${this.project.tags?.length?a`
+          ${this.project.tags?.length?r`
                 <div class="tag-list">
-                  ${this.project.tags.slice(0,3).map(e=>a`<span class="tag">${e}</span>`)}
+                  ${this.project.tags.slice(0,3).map(e=>r`<span class="tag">${e}</span>`)}
                 </div>
               `:""}
         </div>
@@ -474,16 +476,16 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           transform: none;
         }
       }
-    `],j([d({type:Object})],z.prototype,"project",2),j([d({type:Boolean})],z.prototype,"isSelected",2),j([l()],z.prototype,"_isHovered",2),j([l()],z.prototype,"_isVisible",2),z=j([o("media-item")],z);var E=Object.defineProperty,$=Object.getOwnPropertyDescriptor,L=(e,t,i,r)=>{for(var a,o=r>1?void 0:r?$(t,i):t,s=e.length-1;s>=0;s--)(a=e[s])&&(o=(r?a(t,i,o):a(o))||o);return r&&o&&E(t,i,o),o};let S=class extends r{constructor(){super(...arguments),this.projects=[],this._handleItemSelect=e=>{const{projectId:t}=e.detail;this.dispatchEvent(new CustomEvent("item-selected",{detail:{projectId:t},bubbles:!0}))}}render(){return 0===this.projects.length?a`
+    `],j([d({type:Object})],z.prototype,"project",2),j([d({type:Boolean})],z.prototype,"isSelected",2),j([l()],z.prototype,"_isHovered",2),j([l()],z.prototype,"_isVisible",2),z=j([o("media-item")],z);var E=Object.defineProperty,$=Object.getOwnPropertyDescriptor,L=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?$(t,i):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&E(t,i,o),o};let P=class extends a{constructor(){super(...arguments),this.projects=[],this._handleItemSelect=e=>{const{projectId:t}=e.detail;this.dispatchEvent(new CustomEvent("item-selected",{detail:{projectId:t},bubbles:!0}))}}render(){return 0===this.projects.length?r`
         <div class="grid-container">
           <div class="empty-state">
             <p>No projects to display</p>
           </div>
         </div>
-      `:a`
+      `:r`
       <div class="grid-container">
         <div class="projects-grid">
-          ${this.projects.map(e=>a`
+          ${this.projects.map(e=>r`
               <media-item
                 .project=${e}
                 .isSelected=${this.selectedId===e.id}
@@ -492,7 +494,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
             `)}
         </div>
       </div>
-    `}};S.styles=[c,m,i`
+    `}};P.styles=[c,m,i`
       :host {
         display: block;
         height: 100%;
@@ -558,13 +560,13 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           scroll-behavior: auto;
         }
       }
-    `],L([d({type:Array})],S.prototype,"projects",2),L([d({type:String})],S.prototype,"selectedId",2),S=L([o("media-grid")],S);var P=Object.defineProperty,I=Object.getOwnPropertyDescriptor,O=(e,t,i,r)=>{for(var a,o=r>1?void 0:r?I(t,i):t,s=e.length-1;s>=0;s--)(a=e[s])&&(o=(r?a(t,i,o):a(o))||o);return r&&o&&P(t,i,o),o};let C=class extends r{constructor(){super(...arguments),this.open=!1,this._handleKeydown=e=>{"Escape"===e.key&&this.open&&this._handleClose()},this._handleClose=()=>{this.dispatchEvent(new CustomEvent("close",{bubbles:!0}))},this._handleOverlayClick=e=>{e.target===e.currentTarget&&this._handleClose()},this._handleVideoLoaded=e=>{e.target}}connectedCallback(){super.connectedCallback(),document.addEventListener("keydown",this._handleKeydown)}disconnectedCallback(){super.disconnectedCallback(),document.removeEventListener("keydown",this._handleKeydown)}_renderMedia(){return this.project?.media.length?a`
+    `],L([d({type:Array})],P.prototype,"projects",2),L([d({type:String})],P.prototype,"selectedId",2),P=L([o("media-grid")],P);var I=Object.defineProperty,S=Object.getOwnPropertyDescriptor,C=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?S(t,i):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&I(t,i,o),o};let T=class extends a{constructor(){super(...arguments),this.open=!1,this._handleKeydown=e=>{"Escape"===e.key&&this.open&&this._handleClose()},this._handleClose=()=>{this.dispatchEvent(new CustomEvent("close",{bubbles:!0}))},this._handleOverlayClick=e=>{e.target===e.currentTarget&&this._handleClose()},this._handleVideoLoaded=e=>{e.target}}connectedCallback(){super.connectedCallback(),document.addEventListener("keydown",this._handleKeydown)}disconnectedCallback(){super.disconnectedCallback(),document.removeEventListener("keydown",this._handleKeydown)}_renderMedia(){return this.project?.media.length?r`
       <div class="media-section">
         <h3 class="section-title">
           ${this.project.media.length>1?`Media (${this.project.media.length})`:"Media"}
         </h3>
         <div class="media-grid">
-          ${this.project.media.map(e=>{switch(e.type){case"video":return a`
+          ${this.project.media.map(e=>{switch(e.type){case"video":return r`
                   <div class="media-item">
                     <video
                       class="media-element"
@@ -576,7 +578,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
                       @loadeddata=${this._handleVideoLoaded}
                     ></video>
                   </div>
-                `;case"youtube":return a`
+                `;case"youtube":return r`
                   <div class="media-item">
                     <iframe
                       class="media-element"
@@ -586,7 +588,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
                       allowfullscreen
                     ></iframe>
                   </div>
-                `;case"image":return a`
+                `;case"image":return r`
                   <div class="media-item">
                     <img
                       class="media-element"
@@ -594,14 +596,14 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
                       alt=${e.alt||this.project.title}
                     />
                   </div>
-                `;default:return a``}})}
+                `;default:return r``}})}
         </div>
       </div>
-    `:a``}_renderLinks(){return this.project?.links?.length?a`
+    `:r``}_renderLinks(){return this.project?.links?.length?r`
       <div class="links-section">
         <h3 class="section-title">Links</h3>
         <div class="links-grid">
-          ${this.project.links.map(e=>a`
+          ${this.project.links.map(e=>r`
               <a
                 href=${e.href}
                 class="link ${"secondary"===e.type?"link-secondary":"link-primary"}"
@@ -613,7 +615,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
             `)}
         </div>
       </div>
-    `:a``}render(){return this.project?a`
+    `:r``}render(){return this.project?r`
       <div @click=${this._handleOverlayClick}>
         <div class="modal-content">
           <div class="modal-header">
@@ -627,9 +629,9 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
             <h2 class="modal-title">${this.project.title}</h2>
             <p class="modal-description">${this.project.description}</p>
 
-            ${this.project.tags?.length?a`
+            ${this.project.tags?.length?r`
                   <div class="tag-list">
-                    ${this.project.tags.map(e=>a`<span class="tag">${e}</span>`)}
+                    ${this.project.tags.map(e=>r`<span class="tag">${e}</span>`)}
                   </div>
                 `:""}
           </div>
@@ -639,7 +641,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           </div>
         </div>
       </div>
-    `:a``}updated(e){e.has("open")&&this.toggleAttribute("open",this.open)}};C.styles=[c,p,h,i`
+    `:r``}updated(e){e.has("open")&&this.toggleAttribute("open",this.open)}};T.styles=[c,p,h,i`
       :host {
         position: fixed;
         top: 0;
@@ -820,14 +822,14 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           right: var(--spacing-sm);
         }
       }
-    `],O([d({type:Object})],C.prototype,"project",2),O([d({type:Boolean})],C.prototype,"open",2),C=O([o("project-modal")],C);var T=Object.defineProperty,M=Object.getOwnPropertyDescriptor,A=(e,t,i,r)=>{for(var a,o=r>1?void 0:r?M(t,i):t,s=e.length-1;s>=0;s--)(a=e[s])&&(o=(r?a(t,i,o):a(o))||o);return r&&o&&T(t,i,o),o};let V=class extends r{constructor(){super(...arguments),this._appState={selectedProjectId:void 0,isLoading:!0,isMobile:!1},this._loadedThumbnails=new Set,this._totalThumbnails=0,this._handleThumbnailLoaded=e=>{const t=e,{mediaSrc:i}=t.detail;this._loadedThumbnails.add(i),console.log(`Thumbnail loaded: ${i.split("/").pop()} (${this._loadedThumbnails.size}/${this._totalThumbnails})`),this._loadedThumbnails.size>=this._totalThumbnails&&(console.log("All thumbnails loaded, hiding loading screen"),setTimeout(()=>{this._hideLoading()},300))},this._handleResize=()=>{this._checkMobile(),this._setViewportHeight()},this._handleKeydown=e=>{"Escape"===e.key&&this._appState.selectedProjectId&&this._handleModalClose()},this._handleItemSelected=e=>{const{projectId:t}=e.detail;this._appState={...this._appState,selectedProjectId:t}},this._handleModalClose=()=>{this._appState={...this._appState,selectedProjectId:void 0}}}connectedCallback(){super.connectedCallback(),this._initializeApp(),window.addEventListener("resize",this._handleResize),document.addEventListener("keydown",this._handleKeydown),document.addEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}disconnectedCallback(){super.disconnectedCallback(),window.removeEventListener("resize",this._handleResize),document.removeEventListener("keydown",this._handleKeydown),document.removeEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}_initializeApp(){this._setViewportHeight(),this._checkMobile(),this._countTotalThumbnails(),this._startLoadingTimeout()}_countTotalThumbnails(){this._totalThumbnails=v.reduce((e,t)=>{const i=t.media[0];return!i||"video"!==i.type&&"image"!==i.type?e:e+1},0),console.log(`Loading screen waiting for ${this._totalThumbnails} thumbnails to load`),0===this._totalThumbnails&&this._hideLoading()}_startLoadingTimeout(){}_hideLoading(){this._appState={...this._appState,isLoading:!1}}_setViewportHeight(){const e=.01*window.innerHeight;document.documentElement.style.setProperty("--vh",`${e}px`)}_checkMobile(){const e=window.innerWidth<=768;e!==this._appState.isMobile&&(this._appState={...this._appState,isMobile:e})}get _selectedProject(){if(this._appState.selectedProjectId)return v.find(e=>e.id===this._appState.selectedProjectId)}render(){return a`
+    `],C([d({type:Object})],T.prototype,"project",2),C([d({type:Boolean})],T.prototype,"open",2),T=C([o("project-modal")],T);var O=Object.defineProperty,M=Object.getOwnPropertyDescriptor,D=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?M(t,i):t,n=e.length-1;n>=0;n--)(r=e[n])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&O(t,i,o),o};let V=class extends a{constructor(){super(...arguments),this._appState={selectedProjectId:void 0,isLoading:!0,isMobile:!1},this._loadedThumbnails=new Set,this._totalThumbnails=0,this._handleThumbnailLoaded=e=>{const t=e,{mediaSrc:i}=t.detail;this._loadedThumbnails.add(i),console.log(`Thumbnail loaded: ${i.split("/").pop()} (${this._loadedThumbnails.size}/${this._totalThumbnails})`),this._loadedThumbnails.size>=this._totalThumbnails&&(console.log("All thumbnails loaded, hiding loading screen"),setTimeout(()=>{this._hideLoading()},300))},this._handleResize=()=>{this._checkMobile(),this._setViewportHeight()},this._handleKeydown=e=>{"Escape"===e.key&&this._appState.selectedProjectId&&this._handleModalClose()},this._handleItemSelected=e=>{const{projectId:t}=e.detail;this._appState={...this._appState,selectedProjectId:t}},this._handleModalClose=()=>{this._appState={...this._appState,selectedProjectId:void 0}}}connectedCallback(){super.connectedCallback(),this._initializeApp(),window.addEventListener("resize",this._handleResize),document.addEventListener("keydown",this._handleKeydown),document.addEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}disconnectedCallback(){super.disconnectedCallback(),window.removeEventListener("resize",this._handleResize),document.removeEventListener("keydown",this._handleKeydown),document.removeEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}_initializeApp(){this._setViewportHeight(),this._checkMobile(),this._countTotalThumbnails(),this._startLoadingTimeout()}_countTotalThumbnails(){this._totalThumbnails=g.reduce((e,t)=>{const i=t.media[0];return!i||"video"!==i.type&&"image"!==i.type?e:e+1},0),console.log(`Loading screen waiting for ${this._totalThumbnails} thumbnails to load`),0===this._totalThumbnails&&this._hideLoading()}_startLoadingTimeout(){}_hideLoading(){this._appState={...this._appState,isLoading:!1}}_setViewportHeight(){const e=.01*window.innerHeight;document.documentElement.style.setProperty("--vh",`${e}px`)}_checkMobile(){const e=window.innerWidth<=768;e!==this._appState.isMobile&&(this._appState={...this._appState,isMobile:e})}get _selectedProject(){if(this._appState.selectedProjectId)return g.find(e=>e.id===this._appState.selectedProjectId)}render(){return r`
       <div class="app-container">
         <loading-screen .visible=${this._appState.isLoading}></loading-screen>
 
         <app-header></app-header>
 
         <media-grid
-          .projects=${v}
+          .projects=${g}
           .selectedId=${this._appState.selectedProjectId}
           @item-selected=${this._handleItemSelected}
         ></media-grid>
@@ -877,5 +879,5 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           transition-duration: 0.01ms !important;
         }
       }
-    `],A([l()],V.prototype,"_appState",2),V=A([o("portfolio-app")],V);
-//# sourceMappingURL=index-Gru6JeCG.js.map
+    `],D([l()],V.prototype,"_appState",2),V=D([o("portfolio-app")],V);
+//# sourceMappingURL=index-B071B8RY.js.map
