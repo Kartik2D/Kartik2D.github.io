@@ -1,71 +1,87 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { sharedStyles, layoutStyles } from "../styles/shared.js";
 import "./media-item.js";
-import type { Project } from "../types";
+import type { Project } from "../types.js";
 
 @customElement("media-grid")
 export class MediaGrid extends LitElement {
   @property({ type: Array }) projects: Project[] = [];
   @property({ type: String }) selectedId?: string;
 
-  static styles = css`
-    :host {
-      display: block;
-      height: 100vh;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 0;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    .grid media-item {
-      flex: 1 1 300px;
-      min-height: 250px;
-      max-height: 400px;
-    }
-
-    /* Responsive breakpoints */
-    @media (max-width: 768px) {
+  static styles = [
+    sharedStyles,
+    layoutStyles,
+    css`
       :host {
-        /* Improve touch scrolling performance on mobile */
+        display: block;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
       }
 
-      .grid media-item {
-        flex: 1 1 100%;
-        min-height: 200px;
-        max-height: 300px;
+      .grid-container {
+        padding: 0;
+        min-height: 100%;
       }
-    }
 
-    @media (min-width: 769px) and (max-width: 1200px) {
-      .grid media-item {
-        flex: 1 1 calc(50% - 0px);
+      .grid {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        max-width: 1400px;
+        margin: 0 auto;
       }
-    }
 
-    @media (min-width: 1201px) {
-      .grid media-item {
-        flex: 1 1 calc(33.333% - 0px);
+      .projects-grid {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       }
-    }
 
-    @media (min-width: 1800px) {
-      .grid media-item {
-        flex: 1 1 calc(25% - 0px);
+      .empty-state {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: var(--spacing-2xl);
+        color: var(--color-text-secondary);
       }
-    }
-  `;
 
-  private _handleItemSelect(event: CustomEvent) {
+      /* Responsive adjustments */
+      @media (max-width: 640px) {
+        .grid-container {
+          padding: 0;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+      }
+
+      @media (min-width: 641px) and (max-width: 1024px) {
+        .projects-grid {
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+      }
+
+      @media (min-width: 1800px) {
+        .projects-grid {
+          grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        }
+      }
+
+      /* Performance optimizations */
+      @media (prefers-reduced-motion: reduce) {
+        :host {
+          scroll-behavior: auto;
+        }
+      }
+    `,
+  ];
+
+  private _handleItemSelect = (event: CustomEvent) => {
     const { projectId } = event.detail;
     this.dispatchEvent(
       new CustomEvent("item-selected", {
@@ -73,22 +89,32 @@ export class MediaGrid extends LitElement {
         bubbles: true,
       })
     );
-  }
+  };
 
   render() {
+    if (this.projects.length === 0) {
+      return html`
+        <div class="grid-container">
+          <div class="empty-state">
+            <p>No projects to display</p>
+          </div>
+        </div>
+      `;
+    }
+
     return html`
-      <div class="grid">
-        ${this.projects.map((project, index) => {
-          const itemId = `project-${index}`;
-          return html`
-            <media-item
-              .project=${project}
-              .itemId=${itemId}
-              .isSelected=${this.selectedId === itemId}
-              @item-select=${this._handleItemSelect}
-            ></media-item>
-          `;
-        })}
+      <div class="grid-container">
+        <div class="projects-grid">
+          ${this.projects.map(
+            (project: Project) => html`
+              <media-item
+                .project=${project}
+                .isSelected=${this.selectedId === project.id}
+                @item-select=${this._handleItemSelect}
+              ></media-item>
+            `
+          )}
+        </div>
       </div>
     `;
   }

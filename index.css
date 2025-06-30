@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+/* CSS Custom Properties for dynamic viewport */
+:root {
+  --vh: 1vh;
+}
+
 html,
 body {
   margin: 0;
@@ -14,7 +19,9 @@ body {
   background: #fff;
   color: #111;
   height: 100%;
-  overflow: hidden; /* Prevent global scroll */
+  overflow: hidden;
+  /* Fix for mobile viewport issues */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 /* Media elements */
@@ -35,9 +42,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Focus styles */
+/* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #6366f1;
   outline-offset: 2px;
 }
 
@@ -72,5 +79,17 @@ a:hover {
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+/* Performance optimization for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
