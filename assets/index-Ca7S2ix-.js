@@ -629,6 +629,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
             <h2 class="modal-title">${this.project.title}</h2>
             <p class="modal-description">${this.project.description}</p>
 
+            ${this._renderLinks()}
             ${this.project.tags?.length?r`
                   <div class="tag-list">
                     ${this.project.tags.map(e=>r`<span class="tag">${e}</span>`)}
@@ -636,9 +637,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
                 `:""}
           </div>
 
-          <div class="modal-body">
-            ${this._renderMedia()} ${this._renderLinks()}
-          </div>
+          <div class="modal-body">${this._renderMedia()}</div>
         </div>
       </div>
     `:r``}updated(e){e.has("open")&&this.toggleAttribute("open",this.open)}};T.styles=[c,p,m,i`
@@ -742,9 +741,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
       }
 
       .links-section {
-        margin-top: var(--spacing-xl);
-        padding-top: var(--spacing-xl);
-        border-top: 1px solid var(--color-border);
+        margin-top: var(--spacing-md);
       }
 
       .links-grid {
@@ -880,4 +877,4 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
         }
       }
     `],D([l()],V.prototype,"_appState",2),V=D([o("portfolio-app")],V);
-//# sourceMappingURL=index-BUoaESf6.js.map
+//# sourceMappingURL=index-Ca7S2ix-.js.map

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+    <script src="masonry.pkgd.min.js"></script>
+    <script src="function.js"></script>
+  </head>
+  <body onload="mason()">
+
+  <div class="wrapper" data-tilt data-tilt-max="10" data-tilt data-tilt-reverse="true">
+      <div style="margin:10px">
+        <h1>
+          Hi, I'm <span class="profile">Kartik</span>
+        </h1>
+        <h2>
+          I'm a multidisciplinary designer focused on creating interactive experiences
+        </h2>
+      </div>
+
+      <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
+
+        <div class="grid-item card" onclick="modalOn('proj1');">
+          <img src="pr1.gif" alt="Avatar" style="width:100%;vertical-align: top">
+          <div class="container">
+            <h3><b>Project #1</b></h3>
+            <p>description</p>
+          </div>
+        </div>
+        <div class="grid-item card" onclick="modalOn('proj2');">
+          <img src="test3.gif" alt="Avatar" style="width:100%;vertical-align: top">
+          <div class="container">
+            <h3><b>Project #2</b></h3>
+            <p>description</p>
+          </div>
+        </div>
+        <div class="grid-item card" onclick="modalOn('proj3');">
+          <img src="pr1.gif" alt="Avatar" style="width:100%;vertical-align: top">
+          <div class="container">
+            <h3><b>Project #3</b></h3>
+            <p>description</p>
+          </div>
+        </div>
+        <div class="grid-item card" onclick="modalOn('proj4');">
+          <img src="test3.gif" alt="Avatar" style="width:100%;vertical-align: top">
+          <div class="container">
+            <h3><b>Project #4</b></h3>
+            <p>description</p>
+          </div>
+        </div>
+        <div class="grid-item card" onclick="modalOn('proj5');">
+          <img src="pr1.gif" alt="Avatar" style="width:100%;vertical-align: top">
+          <div class="container">
+            <h3><b>Project #5</b></h3>
+            <p>description</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="modalBack" class="modal" onclick="modalOff();">
+    </div>
+
+    <div id="proj1" class="modal-content">
+      <h3>Project #1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus mauris dolor, varius aliquam urna tempor ac. Quisque volutpat, orci nec maximus molestie, justo sem bibendum justo, in tincidunt sem orci at nulla. Praesent elementum aliquet nisl. Suspendisse potenti. Proin nec vestibulum tortor, quis ornare dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer at felis auctor, tempor ex vitae, imperdiet ligula. Donec consequat, neque eleifend elementum commodo, mi tellus varius magna, ac ullamcorper arcu velit nec dolor. Mauris eget justo ligula. Pellentesque luctus metus ac iaculis mattis. Praesent auctor metus ut justo pellentesque sagittis. Praesent turpis velit, bibendum id blandit sit amet, lobortis vitae tortor. Donec tincidunt massa id libero vehicula ultricies id id odio. Praesent at sem condimentum, lobortis libero nec, eleifend velit. Vestibulum imperdiet dapibus libero, nec mollis mi malesuada in. Mauris facilisis neque quis malesuada aliquam.</p>
+    </div>
+    <div id="proj2" class="modal-content">
+      <h3>Project #1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus mauris dolor, varius aliquam urna tempor ac. Quisque volutpat, orci nec maximus molestie, justo sem bibendum justo, in tincidunt sem orci at nulla. Praesent elementum aliquet nisl. Suspendisse potenti. Proin nec vestibulum tortor, quis ornare dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer at felis auctor, tempor ex vitae, imperdiet ligula. Donec consequat, neque eleifend elementum commodo, mi tellus varius magna, ac ullamcorper arcu velit nec dolor. Mauris eget justo ligula. Pellentesque luctus metus ac iaculis mattis. Praesent auctor metus ut justo pellentesque sagittis. Praesent turpis velit, bibendum id blandit sit amet, lobortis vitae tortor. Donec tincidunt massa id libero vehicula ultricies id id odio. Praesent at sem condimentum, lobortis libero nec, eleifend velit. Vestibulum imperdiet dapibus libero, nec mollis mi malesuada in. Mauris facilisis neque quis malesuada aliquam.</p>
+    </div>
+    <div id="proj3" class="modal-content">
+      <h3>Project #1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus mauris dolor, varius aliquam urna tempor ac. Quisque volutpat, orci nec maximus molestie, justo sem bibendum justo, in tincidunt sem orci at nulla. Praesent elementum aliquet nisl. Suspendisse potenti. Proin nec vestibulum tortor, quis ornare dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer at felis auctor, tempor ex vitae, imperdiet ligula. Donec consequat, neque eleifend elementum commodo, mi tellus varius magna, ac ullamcorper arcu velit nec dolor. Mauris eget justo ligula. Pellentesque luctus metus ac iaculis mattis. Praesent auctor metus ut justo pellentesque sagittis. Praesent turpis velit, bibendum id blandit sit amet, lobortis vitae tortor. Donec tincidunt massa id libero vehicula ultricies id id odio. Praesent at sem condimentum, lobortis libero nec, eleifend velit. Vestibulum imperdiet dapibus libero, nec mollis mi malesuada in. Mauris facilisis neque quis malesuada aliquam.</p>
+    </div>
+    <div id="proj4" class="modal-content">
+      <h3>Project #1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus mauris dolor, varius aliquam urna tempor ac. Quisque volutpat, orci nec maximus molestie, justo sem bibendum justo, in tincidunt sem orci at nulla. Praesent elementum aliquet nisl. Suspendisse potenti. Proin nec vestibulum tortor, quis ornare dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer at felis auctor, tempor ex vitae, imperdiet ligula. Donec consequat, neque eleifend elementum commodo, mi tellus varius magna, ac ullamcorper arcu velit nec dolor. Mauris eget justo ligula. Pellentesque luctus metus ac iaculis mattis. Praesent auctor metus ut justo pellentesque sagittis. Praesent turpis velit, bibendum id blandit sit amet, lobortis vitae tortor. Donec tincidunt massa id libero vehicula ultricies id id odio. Praesent at sem condimentum, lobortis libero nec, eleifend velit. Vestibulum imperdiet dapibus libero, nec mollis mi malesuada in. Mauris facilisis neque quis malesuada aliquam.</p>
+    </div>
+    <div id="proj5" class="modal-content">
+      <h3>Project #1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus mauris dolor, varius aliquam urna tempor ac. Quisque volutpat, orci nec maximus molestie, justo sem bibendum justo, in tincidunt sem orci at nulla. Praesent elementum aliquet nisl. Suspendisse potenti. Proin nec vestibulum tortor, quis ornare dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer at felis auctor, tempor ex vitae, imperdiet ligula. Donec consequat, neque eleifend elementum commodo, mi tellus varius magna, ac ullamcorper arcu velit nec dolor. Mauris eget justo ligula. Pellentesque luctus metus ac iaculis mattis. Praesent auctor metus ut justo pellentesque sagittis. Praesent turpis velit, bibendum id blandit sit amet, lobortis vitae tortor. Donec tincidunt massa id libero vehicula ultricies id id odio. Praesent at sem condimentum, lobortis libero nec, eleifend velit. Vestibulum imperdiet dapibus libero, nec mollis mi malesuada in. Mauris facilisis neque quis malesuada aliquam.</p>
+    </div>
+
+    <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+  </body>
+</html>
