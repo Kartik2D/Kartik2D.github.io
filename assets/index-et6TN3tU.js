@@ -158,7 +158,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
     white-space: nowrap;
     border: 0;
   }
-`,g=[{id:"rhythm-game",title:"Rhythm Game",description:"Rhythm game built in Godot with precise audio timing. Features bouncy visual feedback that responds dynamically to musical beats.",thumbnail:{src:"mov/dog.mp4",type:"video"},media:[{src:"mov/dog.mp4",type:"video"}],tags:["Games","Audio Programming"],featured:!0},{id:"timing-practice",title:"Timing Practice",description:"Motion study exploring satisfying animation. Focuses on creating weighted, organic movement that feels natural rather than robotic.",thumbnail:{src:"mov/Hello.mp4",type:"video"},media:[{src:"https://youtu.be/is6Ochvkjx8",type:"youtube"}],links:[{href:"https://youtu.be/is6Ochvkjx8",label:"Watch on YouTube",type:"primary"}],tags:["Motion Design","Animation"],featured:!0},{id:"amuselabs-promo",title:"AmuseLabs Promo",description:"Client work: 60-second social spot for crossword app. Handled everything from initial concept to final animation.",thumbnail:{src:"mov/amuselabs_optimized.mp4",type:"video"},media:[{src:"https://www.youtube.com/watch?v=hyWDx1RaeU0",type:"youtube"}],links:[{href:"https://youtu.be/hyWDx1RaeU0",label:"Watch on YouTube",type:"primary"}],tags:["Commercial","Motion Design"],featured:!0},{id:"la-hacks-branding",title:"LA Hacks Branding",description:"Lead designer: created complete brand identity from scratch. Designed hype video, icons, and social graphics for major hackathon.",thumbnail:{src:"mov/lahacksHYPE_optimized.mp4",type:"video"},media:[{src:"https://www.youtube.com/watch?v=UZo1g0dDjRw",type:"youtube"},{src:"mov/lahacks1.png",type:"image"},{src:"mov/lahacks2.png",type:"image"},{src:"mov/lahacks3.png",type:"image"}],links:[{href:"https://youtu.be/UZo1g0dDjRw",label:"Watch on YouTube",type:"primary"}],tags:["Branding","Motion Design"]},{id:"canvas-code",title:"CanvasCode",description:"Web-based vector graphics editor built in TypeScript. Created as a customizable alternative to Illustrator with built-in scripting tools.",thumbnail:{src:"mov/CanvasCode.mp4",type:"video"},media:[{src:"mov/CanvasCode.mp4",type:"video"}],links:[{href:"https://kartik2d.github.io/CanvasCode/",label:"Try Live Demo",type:"primary"}],tags:["Web Development","Creative Tools"],featured:!0},{id:"ui-work",title:"UI Work",description:"Interface and product UI explorations—layouts, components, and screen flows captured from ongoing design work.",thumbnail:{src:"mov/ui/1.png",type:"image"},media:[{src:"mov/ui/1.png",type:"image"},{src:"mov/ui/2.png",type:"image"},{src:"mov/ui/3.png",type:"image"}],tags:["UI Design","Web Development"]},{id:"files-vs-apps",title:"Files vs Apps",description:"How AI is quietly dismantling the app-centric era of computing, and why that matters for who owns your work.",thumbnail:{src:"mov/filesvapps-cover.png",type:"image",alt:"Diagram comparing file-centric tools sharing an open format versus siloed apps with proprietary formats."},media:[{src:"mov/filesvapps-cover.png",type:"image",alt:"Diagram comparing file-centric tools sharing an open format versus siloed apps with proprietary formats."}],links:[{href:"mov/filesvapps.html",label:"Read post",type:"primary"}],tags:["Writing","UI Design"]},{id:"landscape",title:"Gilroy",description:"Environment illustration exploring atmosphere, color, and scale.",thumbnail:{src:"mov/landscape.png",type:"image"},media:[{src:"mov/landscape.png",type:"image"}],tags:["Digital Art","Illustration"]},{id:"la-hacks-minigame",title:"LA Hacks Minigame",description:"One-hour game jam exploring satisfying game interactions. Visual elements react and communicate with the player through responsive feedback.",thumbnail:{src:"mov/lahacks_optimized.mp4",type:"video"},media:[{src:"mov/lahacks_optimized.mp4",type:"video"}],links:[{href:"LaHacksMinigame/index.html",label:"Play Online",type:"primary"}],tags:["Games"]},{id:"zen-painter",title:"Zen Painter",description:"Experimental brush tool that creates unique marks based on how you paint. Explores new approaches to digital art beyond traditional drawing apps.",thumbnail:{src:"mov/brush.mp4",type:"video"},media:[{src:"mov/brush1.jpeg",type:"image"}],links:[{href:"https://kartik2d.itch.io/zen-painter",label:"Play on Itch.io",type:"primary"}],tags:["Creative Tools","Generative Art"],featured:!0},{id:"flower-p5js",title:"Flower (p5.js)",description:"Interactive doodle inspired by early WebGL experiments.",thumbnail:{src:"mov/flower_web_optimized.mp4",type:"video"},media:[{src:"mov/flower_web_optimized.mp4",type:"video"}],links:[{href:"flower/index.html",label:"Try Interactive Demo",type:"primary"}],tags:["Creative Coding","Interactive"]},{id:"space-shooter",title:"Space Shooter",description:"Arcade prototype built in Lua with heavy visual effects. Features screen shake and chromatic aberration that create satisfying tactile feedback.",thumbnail:{src:"mov/mov3.mp4",type:"video"},media:[{src:"mov/mov3.mp4",type:"video"}],tags:["Games","Visual Effects"]},{id:"basketball-prototype",title:"Basketball Prototype",description:"Physics toy built in Lua with responsive nets and ropes. Focuses on creating satisfying interactions through dynamic visual feedback.",thumbnail:{src:"mov/mov.mp4",type:"video"},media:[{src:"mov/basketball3.mp4",type:"video"},{src:"mov/mov2.mp4",type:"video"},{src:"mov/mov.mp4",type:"video"}],tags:["Games","Physics Simulation"]},{id:"digital-painting-1",title:"Digital Painting I",description:"Personal digital illustration.",thumbnail:{src:"mov/painting1.jpeg",type:"image"},media:[{src:"mov/painting1.jpeg",type:"image"}],tags:["Digital Art"]},{id:"digital-painting-2",title:"Digital Painting II",description:"Personal digital illustration.",thumbnail:{src:"mov/painting2.jpeg",type:"image"},media:[{src:"mov/painting2.jpeg",type:"image"}],tags:["Digital Art"]},{id:"digital-painting-3",title:"Digital Painting III",description:"Personal digital illustration.",thumbnail:{src:"mov/painting3.jpeg",type:"image"},media:[{src:"mov/painting3.jpeg",type:"image"}],tags:["Digital Art"]}];var v=Object.getOwnPropertyDescriptor;let u=class extends a{render(){return r`
+`,g=[{id:"rhythm-game",title:"Rhythm Game",description:"Rhythm game built in Godot with precise audio timing. Features bouncy visual feedback that responds dynamically to musical beats.",thumbnail:{src:"mov/dog.mp4",type:"video"},media:[{src:"mov/dog.mp4",type:"video"}],tags:["Games"],featured:!0},{id:"timing-practice",title:"Timing Practice",description:"Motion study exploring satisfying animation. Focuses on creating weighted, organic movement that feels natural rather than robotic.",thumbnail:{src:"mov/Hello.mp4",type:"video"},media:[{src:"https://youtu.be/is6Ochvkjx8",type:"youtube"}],links:[{href:"https://youtu.be/is6Ochvkjx8",label:"Watch on YouTube",type:"primary"}],tags:["Motion Design"],featured:!0},{id:"amuselabs-promo",title:"AmuseLabs Promo",description:"Client work: 60-second social spot for crossword app. Handled everything from initial concept to final animation.",thumbnail:{src:"mov/amuselabs_optimized.mp4",type:"video"},media:[{src:"https://www.youtube.com/watch?v=hyWDx1RaeU0",type:"youtube"}],links:[{href:"https://youtu.be/hyWDx1RaeU0",label:"Watch on YouTube",type:"primary"}],tags:["Motion Design"],featured:!0},{id:"inkwell",title:"InkWell",description:"Vector sketchpad designed to make vector art easy. Draw and edit paths and shapes in the browser with a straightforward, minimal workflow.",thumbnail:{src:"mov/inkwell.mov",type:"video"},media:[{src:"mov/inkwell.mov",type:"video"}],links:[{href:"https://kartik2d.github.io/inkwell/",label:"Open Inkwell",type:"primary"}],tags:["Creative Tools"],featured:!0},{id:"la-hacks-branding",title:"LA Hacks Branding",description:"Lead designer: created complete brand identity from scratch. Designed hype video, icons, and social graphics for major hackathon.",thumbnail:{src:"mov/lahacksHYPE_optimized.mp4",type:"video"},media:[{src:"https://www.youtube.com/watch?v=UZo1g0dDjRw",type:"youtube"},{src:"mov/lahacks1.png",type:"image"},{src:"mov/lahacks2.png",type:"image"},{src:"mov/lahacks3.png",type:"image"}],links:[{href:"https://youtu.be/UZo1g0dDjRw",label:"Watch on YouTube",type:"primary"}],tags:["Motion Design"]},{id:"canvas-code",title:"CanvasCode",description:"Cross between an IDE and a vector graphics editor—code your own tools and extend the canvas.",thumbnail:{src:"mov/CanvasCode.mp4",type:"video"},media:[{src:"mov/CanvasCode.mp4",type:"video"}],links:[{href:"https://kartik2d.github.io/CanvasCode/",label:"Try Live Demo",type:"primary"}],tags:["Creative Tools"],featured:!0},{id:"ui-work",title:"UI Work",description:"Interface and product UI explorations—layouts, components, and screen flows captured from ongoing design work.",thumbnail:{src:"mov/ui/1.png",type:"image"},media:[{src:"mov/ui/1.png",type:"image"},{src:"mov/ui/2.png",type:"image"},{src:"mov/ui/3.png",type:"image"}],tags:["Digital Art"]},{id:"files-vs-apps",title:"Files vs Apps",description:"How AI is quietly dismantling the app-centric era of computing, and why that matters for who owns your work.",thumbnail:{src:"mov/filesvapps-cover.png",type:"image",alt:"Diagram comparing file-centric tools sharing an open format versus siloed apps with proprietary formats."},media:[{src:"mov/filesvapps-cover.png",type:"image",alt:"Diagram comparing file-centric tools sharing an open format versus siloed apps with proprietary formats."}],links:[{href:"mov/filesvapps.html",label:"Read post",type:"primary"}],tags:["Blog Posts"]},{id:"landscape",title:"Gilroy",description:"Environment illustration exploring atmosphere, color, and scale.",thumbnail:{src:"mov/landscape.png",type:"image"},media:[{src:"mov/landscape.png",type:"image"}],tags:["Digital Art"]},{id:"la-hacks-minigame",title:"LA Hacks Minigame",description:"One-hour game jam exploring satisfying game interactions. Visual elements react and communicate with the player through responsive feedback.",thumbnail:{src:"mov/lahacks_optimized.mp4",type:"video"},media:[{src:"mov/lahacks_optimized.mp4",type:"video"}],links:[{href:"LaHacksMinigame/index.html",label:"Play Online",type:"primary"}],tags:["Games"]},{id:"zen-painter",title:"Zen Painter",description:"Experimental brush tool that creates unique marks based on how you paint. Explores new approaches to digital art beyond traditional drawing apps.",thumbnail:{src:"mov/brush.mp4",type:"video"},media:[{src:"mov/brush1.jpeg",type:"image"}],links:[{href:"https://kartik2d.itch.io/zen-painter",label:"Play on Itch.io",type:"primary"}],tags:["Creative Tools"],featured:!0},{id:"flower-p5js",title:"Flower (p5.js)",description:"Interactive doodle inspired by early WebGL experiments.",thumbnail:{src:"mov/flower_web_optimized.mp4",type:"video"},media:[{src:"mov/flower_web_optimized.mp4",type:"video"}],links:[{href:"flower/index.html",label:"Try Interactive Demo",type:"primary"}],tags:["Games"]},{id:"space-shooter",title:"Space Shooter",description:"Arcade prototype built in Lua with heavy visual effects. Features screen shake and chromatic aberration that create satisfying tactile feedback.",thumbnail:{src:"mov/mov3.mp4",type:"video"},media:[{src:"mov/mov3.mp4",type:"video"}],tags:["Games"]},{id:"basketball-prototype",title:"Basketball Prototype",description:"Physics toy built in Lua with responsive nets and ropes. Focuses on creating satisfying interactions through dynamic visual feedback.",thumbnail:{src:"mov/mov.mp4",type:"video"},media:[{src:"mov/basketball3.mp4",type:"video"},{src:"mov/mov2.mp4",type:"video"},{src:"mov/mov.mp4",type:"video"}],tags:["Games"]},{id:"digital-painting-1",title:"Digital Painting I",description:"Personal digital illustration.",thumbnail:{src:"mov/painting1.jpeg",type:"image"},media:[{src:"mov/painting1.jpeg",type:"image"}],tags:["Digital Art"]},{id:"digital-painting-2",title:"Digital Painting II",description:"Personal digital illustration.",thumbnail:{src:"mov/painting2.jpeg",type:"image"},media:[{src:"mov/painting2.jpeg",type:"image"}],tags:["Digital Art"]},{id:"digital-painting-3",title:"Digital Painting III",description:"Personal digital illustration.",thumbnail:{src:"mov/painting3.jpeg",type:"image"},media:[{src:"mov/painting3.jpeg",type:"image"}],tags:["Digital Art"]}],v=[...new Set(g.flatMap(e=>e.tags??[]))].sort((e,t)=>e.localeCompare(t));var u=Object.getOwnPropertyDescriptor;let b=class extends a{render(){return r`
       <header>
         <div class="header-content">
           <div class="brand">
@@ -174,7 +174,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           </a>
         </div>
       </header>
-    `}};u.styles=[c,p,h,i`
+    `}};b.styles=[c,p,h,i`
       :host {
         display: block;
         position: fixed;
@@ -234,13 +234,13 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           font-size: 0.8125rem;
         }
       }
-    `],u=((e,t,i,a)=>{for(var r,o=a>1?void 0:a?v(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=r(o)||o);return o})([o("app-header")],u);var b=Object.defineProperty,y=Object.getOwnPropertyDescriptor,f=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?y(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&b(t,i,o),o};let w=class extends a{constructor(){super(...arguments),this.visible=!1}render(){return r`
+    `],b=((e,t,i,a)=>{for(var r,o=a>1?void 0:a?u(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=r(o)||o);return o})([o("app-header")],b);var y=Object.defineProperty,f=Object.getOwnPropertyDescriptor,w=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?f(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&y(t,i,o),o};let x=class extends a{constructor(){super(...arguments),this.visible=!1}render(){return r`
       <div class="loading-content">
         <div class="spinner" aria-hidden="true"></div>
         <h2 class="loading-title">Kartik Vinayak</h2>
         <p class="loading-subtitle">Loading portfolio...</p>
       </div>
-    `}updated(e){e.has("visible")&&this.toggleAttribute("visible",this.visible)}};function x(e){const t=e.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)?.[1];return t?`https://www.youtube-nocookie.com/embed/${t}?rel=0&modestbranding=1&autoplay=0`:e}w.styles=[c,i`
+    `}updated(e){e.has("visible")&&this.toggleAttribute("visible",this.visible)}};function k(e){const t=e.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)?.[1];return t?`https://www.youtube-nocookie.com/embed/${t}?rel=0&modestbranding=1&autoplay=0`:e}x.styles=[c,i`
       :host {
         position: fixed;
         top: 0;
@@ -312,7 +312,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           font-size: 1.5rem;
         }
       }
-    `],f([d({type:Boolean})],w.prototype,"visible",2),w=f([o("loading-screen")],w);var k=Object.defineProperty,_=Object.getOwnPropertyDescriptor,j=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?_(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&k(t,i,o),o};let z=class extends a{constructor(){super(...arguments),this.isSelected=!1,this._isHovered=!1,this._isVisible=!1,this._handleTouchStart=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleTouchEnd=()=>{setTimeout(()=>{this._isHovered=!1},200)},this._handleMouseEnter=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleMouseLeave=()=>{this._isHovered=!1},this._handleClick=()=>{this.dispatchEvent(new CustomEvent("item-select",{detail:{projectId:this.project.id},bubbles:!0}))},this._handleVideoLoaded=e=>{const t=e.target;this._videoElement=t,document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}})),this._isVisible&&t.play().catch(()=>{})},this._handleVideoError=e=>{const t=e.target;console.warn(`Video failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageLoaded=e=>{const t=e.target;document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageError=e=>{const t=e.target;console.warn(`Image failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._setupIntersectionObserver=()=>{this._intersectionObserver=new IntersectionObserver(e=>{e.forEach(e=>{this._isVisible=e.isIntersecting,e.isIntersecting&&this._videoElement?this._videoElement.play().catch(()=>{}):!e.isIntersecting&&this._videoElement&&this._videoElement.pause()})},{threshold:.5,rootMargin:"50px"}),this._intersectionObserver.observe(this)}}connectedCallback(){super.connectedCallback(),this.addEventListener("click",this._handleClick),this.addEventListener("mouseenter",this._handleMouseEnter),this.addEventListener("mouseleave",this._handleMouseLeave),this.addEventListener("touchstart",this._handleTouchStart,{passive:!0}),this.addEventListener("touchend",this._handleTouchEnd,{passive:!0}),this._setupIntersectionObserver()}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("click",this._handleClick),this.removeEventListener("mouseenter",this._handleMouseEnter),this.removeEventListener("mouseleave",this._handleMouseLeave),this.removeEventListener("touchstart",this._handleTouchStart),this.removeEventListener("touchend",this._handleTouchEnd),this._intersectionObserver&&this._intersectionObserver.disconnect()}_renderMedia(){const e=this.project.thumbnail;if(!e)return r``;switch(e.type){case"video":return r`
+    `],w([d({type:Boolean})],x.prototype,"visible",2),x=w([o("loading-screen")],x);var _=Object.defineProperty,j=Object.getOwnPropertyDescriptor,z=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?j(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&_(t,i,o),o};let $=class extends a{constructor(){super(...arguments),this.isSelected=!1,this._isHovered=!1,this._isVisible=!1,this._handleTouchStart=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleTouchEnd=()=>{setTimeout(()=>{this._isHovered=!1},200)},this._handleMouseEnter=()=>{this._isHovered=!0,this._videoElement&&this._videoElement.paused&&this._videoElement.play().catch(()=>{})},this._handleMouseLeave=()=>{this._isHovered=!1},this._handleClick=()=>{this.dispatchEvent(new CustomEvent("item-select",{detail:{projectId:this.project.id},bubbles:!0}))},this._handleVideoLoaded=e=>{const t=e.target;this._videoElement=t,document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}})),this._isVisible&&t.play().catch(()=>{})},this._handleVideoError=e=>{const t=e.target;console.warn(`Video failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageLoaded=e=>{const t=e.target;document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._handleImageError=e=>{const t=e.target;console.warn(`Image failed to load: ${t.src}`),document.dispatchEvent(new CustomEvent("thumbnail-loaded",{detail:{mediaSrc:t.src}}))},this._setupIntersectionObserver=()=>{this._intersectionObserver=new IntersectionObserver(e=>{e.forEach(e=>{this._isVisible=e.isIntersecting,e.isIntersecting&&this._videoElement?this._videoElement.play().catch(()=>{}):!e.isIntersecting&&this._videoElement&&this._videoElement.pause()})},{threshold:.5,rootMargin:"50px"}),this._intersectionObserver.observe(this)}}connectedCallback(){super.connectedCallback(),this.addEventListener("click",this._handleClick),this.addEventListener("mouseenter",this._handleMouseEnter),this.addEventListener("mouseleave",this._handleMouseLeave),this.addEventListener("touchstart",this._handleTouchStart,{passive:!0}),this.addEventListener("touchend",this._handleTouchEnd,{passive:!0}),this._setupIntersectionObserver()}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("click",this._handleClick),this.removeEventListener("mouseenter",this._handleMouseEnter),this.removeEventListener("mouseleave",this._handleMouseLeave),this.removeEventListener("touchstart",this._handleTouchStart),this.removeEventListener("touchend",this._handleTouchEnd),this._intersectionObserver&&this._intersectionObserver.disconnect()}_renderMedia(){const e=this.project.thumbnail;if(!e)return r``;switch(e.type){case"video":return r`
           <video
             class="media-element"
             src=${e.src}
@@ -328,7 +328,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
         `;case"youtube":return r`
           <iframe
             class="media-element"
-            src=${x(e.src)}
+            src=${k(e.src)}
             frameborder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             loading="lazy"
@@ -365,7 +365,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
               `:""}
         </div>
       </div>
-    `}updated(e){e.has("isSelected")&&this.toggleAttribute("selected",this.isSelected),e.has("_isHovered")&&this.toggleAttribute("hovered",this._isHovered)}};z.styles=[c,m,i`
+    `}updated(e){e.has("isSelected")&&this.toggleAttribute("selected",this.isSelected),e.has("_isHovered")&&this.toggleAttribute("hovered",this._isHovered)}};$.styles=[c,m,i`
       :host {
         display: block;
         position: relative;
@@ -485,7 +485,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           transform: none;
         }
       }
-    `],j([d({type:Object})],z.prototype,"project",2),j([d({type:Boolean})],z.prototype,"isSelected",2),j([l()],z.prototype,"_isHovered",2),j([l()],z.prototype,"_isVisible",2),z=j([o("media-item")],z);var E=Object.defineProperty,$=Object.getOwnPropertyDescriptor,L=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?$(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&E(t,i,o),o};let C=class extends a{constructor(){super(...arguments),this.projects=[],this._handleItemSelect=e=>{const{projectId:t}=e.detail;this.dispatchEvent(new CustomEvent("item-selected",{detail:{projectId:t},bubbles:!0}))}}render(){return 0===this.projects.length?r`
+    `],z([d({type:Object})],$.prototype,"project",2),z([d({type:Boolean})],$.prototype,"isSelected",2),z([l()],$.prototype,"_isHovered",2),z([l()],$.prototype,"_isVisible",2),$=z([o("media-item")],$);var E=Object.defineProperty,L=Object.getOwnPropertyDescriptor,C=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?L(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&E(t,i,o),o};let T=class extends a{constructor(){super(...arguments),this.projects=[],this._handleItemSelect=e=>{const{projectId:t}=e.detail;this.dispatchEvent(new CustomEvent("item-selected",{detail:{projectId:t},bubbles:!0}))}}render(){return 0===this.projects.length?r`
         <div class="grid-container">
           <div class="empty-state">
             <p>No projects to display</p>
@@ -503,7 +503,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
             `)}
         </div>
       </div>
-    `}};C.styles=[c,h,i`
+    `}};T.styles=[c,h,i`
       :host {
         display: block;
         height: 100%;
@@ -569,7 +569,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           scroll-behavior: auto;
         }
       }
-    `],L([d({type:Array})],C.prototype,"projects",2),L([d({type:String})],C.prototype,"selectedId",2),C=L([o("media-grid")],C);var I=Object.defineProperty,P=Object.getOwnPropertyDescriptor,S=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?P(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&I(t,i,o),o};let T=class extends a{constructor(){super(...arguments),this.open=!1,this._handleKeydown=e=>{"Escape"===e.key&&this.open&&this._handleClose()},this._handleClose=()=>{this.dispatchEvent(new CustomEvent("close",{bubbles:!0}))},this._handleOverlayClick=e=>{e.target===e.currentTarget&&this._handleClose()},this._handleVideoLoaded=e=>{e.target}}connectedCallback(){super.connectedCallback(),document.addEventListener("keydown",this._handleKeydown)}disconnectedCallback(){super.disconnectedCallback(),document.removeEventListener("keydown",this._handleKeydown)}_renderMedia(){return this.project?.media.length?r`
+    `],C([d({type:Array})],T.prototype,"projects",2),C([d({type:String})],T.prototype,"selectedId",2),T=C([o("media-grid")],T);var P=Object.defineProperty,I=Object.getOwnPropertyDescriptor,S=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?I(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&P(t,i,o),o};let O=class extends a{constructor(){super(...arguments),this.open=!1,this._handleKeydown=e=>{"Escape"===e.key&&this.open&&this._handleClose()},this._handleClose=()=>{this.dispatchEvent(new CustomEvent("close",{bubbles:!0}))},this._handleOverlayClick=e=>{e.target===e.currentTarget&&this._handleClose()},this._handleVideoLoaded=e=>{e.target}}connectedCallback(){super.connectedCallback(),document.addEventListener("keydown",this._handleKeydown)}disconnectedCallback(){super.disconnectedCallback(),document.removeEventListener("keydown",this._handleKeydown)}_renderMedia(){return this.project?.media.length?r`
       <div class="media-section">
         <h3 class="section-title">
           ${this.project.media.length>1?`Media (${this.project.media.length})`:"Media"}
@@ -591,7 +591,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
                   <div class="media-item">
                     <iframe
                       class="media-element"
-                      src=${x(e.src)}
+                      src=${k(e.src)}
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen
@@ -649,7 +649,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           <div class="modal-body">${this._renderMedia()}</div>
         </div>
       </div>
-    `:r``}updated(e){e.has("open")&&this.toggleAttribute("open",this.open)}};T.styles=[c,p,m,i`
+    `:r``}updated(e){e.has("open")&&this.toggleAttribute("open",this.open)}};O.styles=[c,p,m,i`
       :host {
         position: fixed;
         top: 0;
@@ -828,14 +828,92 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           right: var(--spacing-sm);
         }
       }
-    `],S([d({type:Object})],T.prototype,"project",2),S([d({type:Boolean})],T.prototype,"open",2),T=S([o("project-modal")],T);var O=Object.defineProperty,M=Object.getOwnPropertyDescriptor,D=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?M(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&O(t,i,o),o};let A=class extends a{constructor(){super(...arguments),this._appState={selectedProjectId:void 0,isLoading:!0,isMobile:!1},this._loadedThumbnails=new Set,this._totalThumbnails=0,this._handleThumbnailLoaded=e=>{const t=e,{mediaSrc:i}=t.detail;this._loadedThumbnails.add(i),console.log(`Thumbnail loaded: ${i.split("/").pop()} (${this._loadedThumbnails.size}/${this._totalThumbnails})`),this._loadedThumbnails.size>=this._totalThumbnails&&(console.log("All thumbnails loaded, hiding loading screen"),setTimeout(()=>{this._hideLoading()},300))},this._handleResize=()=>{this._checkMobile(),this._setViewportHeight()},this._handleKeydown=e=>{"Escape"===e.key&&this._appState.selectedProjectId&&this._handleModalClose()},this._handleItemSelected=e=>{const{projectId:t}=e.detail;this._appState={...this._appState,selectedProjectId:t}},this._handleModalClose=()=>{this._appState={...this._appState,selectedProjectId:void 0}}}connectedCallback(){super.connectedCallback(),this._initializeApp(),window.addEventListener("resize",this._handleResize),document.addEventListener("keydown",this._handleKeydown),document.addEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}disconnectedCallback(){super.disconnectedCallback(),window.removeEventListener("resize",this._handleResize),document.removeEventListener("keydown",this._handleKeydown),document.removeEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}_initializeApp(){this._setViewportHeight(),this._checkMobile(),this._countTotalThumbnails(),this._startLoadingTimeout()}_countTotalThumbnails(){this._totalThumbnails=g.reduce((e,t)=>{const i=t.media[0];return!i||"video"!==i.type&&"image"!==i.type?e:e+1},0),console.log(`Loading screen waiting for ${this._totalThumbnails} thumbnails to load`),0===this._totalThumbnails&&this._hideLoading()}_startLoadingTimeout(){}_hideLoading(){this._appState={...this._appState,isLoading:!1}}_setViewportHeight(){const e=.01*window.innerHeight;document.documentElement.style.setProperty("--vh",`${e}px`)}_checkMobile(){const e=window.innerWidth<=768;e!==this._appState.isMobile&&(this._appState={...this._appState,isMobile:e})}get _selectedProject(){if(this._appState.selectedProjectId)return g.find(e=>e.id===this._appState.selectedProjectId)}render(){return r`
+    `],S([d({type:Object})],O.prototype,"project",2),S([d({type:Boolean})],O.prototype,"open",2),O=S([o("project-modal")],O);var M=Object.defineProperty,D=Object.getOwnPropertyDescriptor,A=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?D(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&M(t,i,o),o};let V=class extends a{constructor(){super(...arguments),this.tags=[]}_select(e){e===this.selectedTag&&void 0!==e||this.dispatchEvent(new CustomEvent("tag-change",{detail:{tag:e},bubbles:!0,composed:!0}))}render(){return r`
+      <nav class="inner" aria-label="Filter work by tag">
+        <div class="chips">
+          <button
+            type="button"
+            class="btn btn-secondary chip"
+            aria-pressed=${void 0===this.selectedTag?"true":"false"}
+            @click=${()=>this._select(void 0)}
+          >
+            All
+          </button>
+          ${this.tags.map(e=>r`
+              <button
+                type="button"
+                class="btn btn-secondary chip"
+                aria-pressed=${this.selectedTag===e?"true":"false"}
+                @click=${()=>this._select(e)}
+              >
+                ${e}
+              </button>
+            `)}
+        </div>
+      </nav>
+    `}};V.styles=[c,p,i`
+      :host {
+        display: block;
+        background: var(--color-background);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        row-gap: var(--spacing-sm);
+        column-gap: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-xl);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--spacing-sm);
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .chip {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+
+      .chip[aria-pressed="true"] {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+      }
+
+      .chip[aria-pressed="true"]:hover {
+        background: var(--color-primary-hover);
+      }
+
+      @media (max-width: 768px) {
+        .inner {
+          padding: var(--spacing-sm) var(--spacing-md);
+        }
+      }
+    `],A([d({type:Array})],V.prototype,"tags",2),A([d({type:String})],V.prototype,"selectedTag",2),V=A([o("tag-filter-bar")],V);var H=Object.defineProperty,R=Object.getOwnPropertyDescriptor,G=(e,t,i,a)=>{for(var r,o=a>1?void 0:a?R(t,i):t,s=e.length-1;s>=0;s--)(r=e[s])&&(o=(a?r(t,i,o):r(o))||o);return a&&o&&H(t,i,o),o};let K=class extends a{constructor(){super(...arguments),this._appState={selectedProjectId:void 0,isLoading:!0,isMobile:!1},this._loadedThumbnails=new Set,this._totalThumbnails=0,this._handleThumbnailLoaded=e=>{const t=e,{mediaSrc:i}=t.detail;this._loadedThumbnails.add(i),console.log(`Thumbnail loaded: ${i.split("/").pop()} (${this._loadedThumbnails.size}/${this._totalThumbnails})`),this._loadedThumbnails.size>=this._totalThumbnails&&(console.log("All thumbnails loaded, hiding loading screen"),setTimeout(()=>{this._hideLoading()},300))},this._handleResize=()=>{this._checkMobile(),this._setViewportHeight()},this._handleKeydown=e=>{"Escape"===e.key&&this._appState.selectedProjectId&&this._handleModalClose()},this._handleItemSelected=e=>{const{projectId:t}=e.detail;this._appState={...this._appState,selectedProjectId:t}},this._handleModalClose=()=>{this._appState={...this._appState,selectedProjectId:void 0}},this._handleTagChange=e=>{const t=e.detail.tag;this._filterTag=t;const i=this._appState.selectedProjectId;if(!i)return;const a=g.find(e=>e.id===i);a&&t&&!a.tags?.includes(t)&&this._handleModalClose()}}connectedCallback(){super.connectedCallback(),this._initializeApp(),window.addEventListener("resize",this._handleResize),document.addEventListener("keydown",this._handleKeydown),document.addEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}disconnectedCallback(){super.disconnectedCallback(),window.removeEventListener("resize",this._handleResize),document.removeEventListener("keydown",this._handleKeydown),document.removeEventListener("thumbnail-loaded",this._handleThumbnailLoaded)}_initializeApp(){this._setViewportHeight(),this._checkMobile(),this._countTotalThumbnails(),this._startLoadingTimeout()}_countTotalThumbnails(){this._totalThumbnails=g.reduce((e,t)=>{const i=t.media[0];return!i||"video"!==i.type&&"image"!==i.type?e:e+1},0),console.log(`Loading screen waiting for ${this._totalThumbnails} thumbnails to load`),0===this._totalThumbnails&&this._hideLoading()}_startLoadingTimeout(){}_hideLoading(){this._appState={...this._appState,isLoading:!1}}_setViewportHeight(){const e=.01*window.innerHeight;document.documentElement.style.setProperty("--vh",`${e}px`)}_checkMobile(){const e=window.innerWidth<=768;e!==this._appState.isMobile&&(this._appState={...this._appState,isMobile:e})}get _selectedProject(){if(this._appState.selectedProjectId)return g.find(e=>e.id===this._appState.selectedProjectId)}get _visibleProjects(){return this._filterTag?g.filter(e=>e.tags?.includes(this._filterTag)):g}render(){return r`
       <div class="app-container">
         <loading-screen .visible=${this._appState.isLoading}></loading-screen>
 
         <app-header></app-header>
 
+        <tag-filter-bar
+          .tags=${v}
+          .selectedTag=${this._filterTag}
+          @tag-change=${this._handleTagChange}
+        ></tag-filter-bar>
+
         <media-grid
-          .projects=${g}
+          .projects=${this._visibleProjects}
           .selectedId=${this._appState.selectedProjectId}
           @item-selected=${this._handleItemSelected}
         ></media-grid>
@@ -846,7 +924,7 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           @close=${this._handleModalClose}
         ></project-modal>
       </div>
-    `}};A.styles=[c,i`
+    `}};K.styles=[c,i`
       :host {
         display: block;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -864,15 +942,22 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
         flex-direction: column;
       }
 
+      /* In flow below fixed header so tag rows can wrap without clipping */
+      tag-filter-bar {
+        flex-shrink: 0;
+        margin-top: var(--header-height);
+        z-index: 90;
+      }
+
       media-grid {
         flex: 1;
-        margin-top: var(--header-height);
+        min-height: 0;
         overflow-y: auto;
         overflow-x: hidden;
       }
 
       @media (max-width: 768px) {
-        media-grid {
+        tag-filter-bar {
           margin-top: var(--header-height-mobile);
         }
       }
@@ -885,5 +970,5 @@ const o=e=>(t,i)=>{void 0!==i?i.addInitializer(()=>{customElements.define(e,t)})
           transition-duration: 0.01ms !important;
         }
       }
-    `],D([l()],A.prototype,"_appState",2),A=D([o("portfolio-app")],A);
-//# sourceMappingURL=index-BH_MgBju.js.map
+    `],G([l()],K.prototype,"_appState",2),G([l()],K.prototype,"_filterTag",2),K=G([o("portfolio-app")],K);
+//# sourceMappingURL=index-et6TN3tU.js.map
