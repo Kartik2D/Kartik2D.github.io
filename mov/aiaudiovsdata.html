@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Precision Paradox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --border: #222222;
+    --text: #e8e8e0;
+    --muted: #888880;
+    --accent: #e8c547;
+    --accent-dim: rgba(232, 197, 71, 0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    line-height: 1.75;
+    padding: 0 1.5rem;
+  }
+
+  .wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 0 8rem;
+  }
+
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 5rem;
+    font-style: italic;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    margin-top: 4.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #ccc8c0;
+    margin-bottom: 1.4rem;
+  }
+
+  em { color: var(--text); font-style: italic; }
+
+  strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--accent);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .pull {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 1.5rem 1.75rem;
+    margin: 2.5rem 0;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .diagram {
+    margin: 3rem 0;
+  }
+
+  .diagram-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .diagram-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .diagram-half {
+    background: var(--surface);
+    padding: 2rem 1.25rem;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .diagram-half h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .diagram-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .tool-node {
+    border: 1px solid #333;
+    background: #1a1a1a;
+    padding: 0.4rem 0.35rem;
+    font-size: 0.7rem;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1rem;
+    line-height: 1;
+    min-height: 1.25rem;
+  }
+
+  .flow-arrow--dim {
+    color: var(--text);
+    opacity: 0.55;
+    font-size: 0.85rem;
+  }
+
+  .file-node {
+    grid-column: 1 / -1;
+    border: 1px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+  }
+
+  .result-node {
+    grid-column: 1 / -1;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .example-block {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .example-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  .example-content p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .example-content .quote {
+    color: var(--text);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .problems {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .problem-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 0.1rem;
+    min-width: 110px;
+  }
+
+  .problem-text {
+    font-size: 0.875rem;
+    color: #aaa8a0;
+    margin: 0;
+  }
+
+  @media (max-width: 560px) {
+    .diagram-grid { grid-template-columns: 1fr; }
+    .diagram-flow {
+      gap: 0.35rem;
+    }
+    .tool-node {
+      font-size: 0.6rem;
+      padding: 0.35rem 0.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <h1>The Precision Paradox</h1>
+  <p class="subtitle">Why AI can generate stunning images but still fumbles when it tries to compose music.</p>
+
+  <!-- Section 1: Two kinds of data -->
+  <h2>Two kinds of creative data</h2>
+
+  <p>
+    Not all creative information is built the same way. At one end, there's what you might call <span class="highlight">fuzzy data</span>: flowing, approximate information like images, audio waveforms, and paintings. Small variations in a photograph's color or a brushstroke's angle still produce <em>perfectly valid results</em>. There is no single "correct" answer in these domains, and that looseness is precisely what makes them forgiving.
+  </p>
+
+  <p>
+    At the other end sits <span class="highlight">exact data</span>: structured, intentional information like music notation, programming languages, and chess strategies. This kind of data is organized in <em>meaningful hierarchical layers</em>, full of <strong>deliberate relationships</strong> between elements. A note in a score isn't just a pitch; it's a participant in harmony, rhythm, phrase, and form, all at once.
+  </p>
+
+  <!-- Diagram -->
+  <div class="diagram">
+    <div class="diagram-title">Two kinds of creative data</div>
+    <div class="diagram-grid">
+      <div class="diagram-half">
+        <h3>Fuzzy data</h3>
+        <div class="diagram-flow">
+          <div class="tool-node">Photos</div>
+          <div class="tool-node">Audio</div>
+          <div class="tool-node">Paintings</div>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <div class="file-node">Approximation is fine</div>
+          <div class="result-node">AI succeeds</div>
+        </div>
+      </div>
+      <div class="diagram-half">
+        <h3>Exact data</h3>
+        <div class="diagram-flow">
+          <div class="tool-node">Scores</div>
+          <div class="tool-node">Code</div>
+          <div class="tool-node">Strategy</div>
+          <span class="flow-arrow flow-arrow--dim" aria-hidden="true">↓</span>
+          <span class="flow-arrow flow-arrow--dim" aria-hidden="true">↓</span>
+          <span class="flow-arrow flow-arrow--dim" aria-hidden="true">↓</span>
+          <div class="file-node">Precision is required</div>
+          <div class="result-node">AI struggles</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: The intentionality gap -->
+  <h2>The intentionality gap</h2>
+
+  <p>
+    AI is exceptional at <span class="highlight">pattern matching</span>: it finds regularities across millions of examples and learns to mimic styles with eerie fidelity. What it cannot do, at least not yet, is understand <em>purpose</em>. It excels at reproducing surface features without grasping <strong>why those features exist</strong>. It generates what "looks right" without knowing the reason it should.
+  </p>
+
+  <p>
+    This gap reveals itself differently across domains. <em>Generated faces</em> look photorealistic because small deviations in skin texture or lighting don't break the illusion. That's a <span class="highlight">fuzzy success</span>. But generated sheet music might contain notes that appear plausible in isolation yet lack any real <em>musical purpose</em>. That's an <strong>exact failure</strong>, and it's far harder to fix.
+  </p>
+
+  <div class="pull">
+    AI can reproduce what something looks like without understanding what it means. In fuzzy domains, that's enough. In exact domains, it's the whole problem.
+  </div>
+
+  <!-- Section 3: Why fuzzy works -->
+  <h2>Why AI handles fuzzy data well</h2>
+
+  <p>
+    The success of AI in image generation, audio synthesis, and similar domains comes down to a simple principle: <span class="highlight">approximation is tolerable</span>. AI studies millions of examples of how things look and sound, then reproduces those qualities convincingly. Success is measured by whether the output "looks right" or "sounds right" to a human, and our perception is naturally generous. We focus on the <em>gestalt</em> rather than pixel-perfect accuracy.
+  </p>
+
+  <p>
+    Small errors <em>blend</em> into the overall impression. A slightly wrong shadow in a generated landscape doesn't ruin the image. A minor timbral inconsistency in a synthesized voice doesn't break the illusion. There is no single "right answer" in most fuzzy domains, which gives AI a <strong>wide margin</strong> within which to operate successfully.
+  </p>
+
+  <!-- Section 4: The hierarchical challenge -->
+  <h2>The hierarchical challenge of music</h2>
+
+  <p>
+    Music operates on <em>multiple simultaneous layers of structure</em>. Notes combine into melodies. Melodies form phrases. Phrases build into sections. Sections create complete pieces. Each layer depends on the others, and <span class="highlight">coherence must hold across all of them at once</span>.
+  </p>
+
+  <p>
+    Composers also rely on <strong>long-distance relationships</strong>: a theme introduced in the opening bars might return, transformed, twenty minutes later. Key changes serve structural purposes that only make sense in the context of the whole. AI, which tends to focus on <em>local patterns</em>, misses this kind of large-scale architecture entirely.
+  </p>
+
+  <div class="problems">
+    <div class="problem-item">
+      <div class="problem-label">Structure</div>
+      <p class="problem-text">Notes, melodies, phrases, and sections must form a coherent hierarchy, not just sound pleasant in isolation.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-label">Long range</div>
+      <p class="problem-text">Themes and motifs return and develop over time. AI focuses locally and loses the thread.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-label">Intention</div>
+      <p class="problem-text">Composers deliberately build and subvert expectations. AI doesn't understand the emotional purpose of these choices.</p>
+    </div>
+  </div>
+
+  <!-- Section 5: Almost right -->
+  <h2>The problem with "almost right"</h2>
+
+  <p>
+    In fuzzy domains, "almost right" is often <em>good enough</em>. Slightly wrong colors rarely change the meaning of a photograph. Small distortions don't ruin the overall impression. <span class="highlight">Success exists on a spectrum</span>, and the threshold for acceptability is wide.
+  </p>
+
+  <p>
+    In exact, hierarchical domains like music, the situation inverts. Every note must relate to a larger <strong>harmonic context</strong>. Rhythmic elements must align with the global meter. And crucially, small errors don't stay small: they <em>compound across structural levels</em>, propagating upward from the note to the phrase to the section to the piece. What was "almost right" at the level of a single measure becomes <span class="highlight">incoherent</span> at the level of a movement.
+  </p>
+
+  <div class="pull">
+    In images, "almost right" is invisible. In music, "almost right" is the uncanny valley.
+  </div>
+
+  <!-- Section 6: The intention problem -->
+  <h2>The intention problem</h2>
+
+  <p>
+    Human composers <em>compose with goals</em>. They decide what emotion to convey, what narrative to build, what expectations to set and when to subvert them. AI composes without any of this. It has no <span class="highlight">expressive purpose</span>, no concept of what it's trying to say, no model of the listener sitting on the other side.
+  </p>
+
+  <p>
+    The result is music that can imitate <em>stylistic features</em> but struggles to create a <strong>coherent musical argument</strong>. It misses the forest for the trees: individual notes may be plausible, but the piece as a whole lacks the <span class="highlight">arc of intention</span> that makes music feel like it's going somewhere. Human composers consider their audience's experience at every turn. AI has no such awareness.
+  </p>
+
+  <div class="example-block">
+    <div class="example-icon">⬡</div>
+    <div class="example-content">
+      <p>A human composer might write a dissonant chord knowing it will resolve four bars later, creating tension the listener feels physically:</p>
+      <p class="quote">"I want the audience to hold their breath here, then exhale."</p>
+    </div>
+  </div>
+
+  <div class="example-block">
+    <div class="example-icon">⬡</div>
+    <div class="example-content">
+      <p>An AI generating the same passage might produce a dissonant chord because it statistically follows the previous one:</p>
+      <p class="quote">No awareness that tension was created. No plan to resolve it.</p>
+    </div>
+  </div>
+
+  <!-- Section 7: Current middle ground -->
+  <h2>Current middle ground</h2>
+
+  <p>
+    There's a telling asymmetry in AI's current musical abilities: it's <em>far better</em> at generating convincing <span class="highlight">audio waveforms</span> than meaningful <span class="highlight">sheet music</span>. Sound is fuzzy. Notation is exact. The same divide that separates images from code separates musical audio from musical scores.
+  </p>
+
+  <p>
+    The most promising approaches today are <strong>hybrid</strong>. AI suggests ideas; humans provide structure. Rule-based systems guide models toward musical coherence. Human editing fixes the structural and intentional gaps that AI leaves behind. Domain-specific constraints help too: limiting AI to a particular style, or providing structural templates, improves results substantially by <em>narrowing the space</em> in which it needs to operate.
+  </p>
+
+  <!-- Section 8: Takeaway -->
+  <h2>What this means</h2>
+
+  <p>
+    AI excels with fuzzy data where approximation works. It struggles with hierarchical structures that demand <em>intention</em>. Music composition sits at the intersection of these two worlds, requiring both <strong>technical correctness</strong> and <span class="highlight">purposeful design</span>, and that combination is precisely what makes it so hard.
+  </p>
+
+  <p>
+    Future advances will need to bridge the gap between <em>pattern recognition</em> and genuine understanding of intention. Until then, AI remains a powerful collaborator but a limited composer: fluent in the language of sound, but still learning the grammar of <strong>meaning</strong>.
+  </p>
+
+  <div class="pull">
+    AI can hear. It can mimic. What it cannot yet do is listen with purpose, and that's the difference between generating sound and making music.
+  </div>
+
+</div>
+</body>
+</html>
