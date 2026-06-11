@@ -51,7 +51,13 @@ export class MediaItem extends LitElement {
         bottom: 0;
         left: 0;
         right: 0;
-        background: linear-gradient(transparent, var(--color-overlay));
+        /* Top of overlay contains the title — avoid transparent stops so light thumbnails don’t wash out white text. */
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.82) 0%,
+          rgba(0, 0, 0, 0.9) 40%,
+          rgba(0, 0, 0, 0.96) 100%
+        );
         color: white;
         padding: var(--spacing-md);
         transform: translateY(100%);
@@ -83,7 +89,11 @@ export class MediaItem extends LitElement {
       }
 
       :host([selected]) .media-overlay {
-        background: linear-gradient(transparent, rgba(99, 102, 241, 0.8));
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(67, 56, 202, 0.92) 100%
+        );
       }
 
       .media-title {
@@ -113,6 +123,23 @@ export class MediaItem extends LitElement {
         font-size: 0.75rem;
         font-weight: var(--font-weight-medium);
         color: white;
+      }
+
+      .browser-badge {
+        position: absolute;
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+        z-index: 4;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        background: #f5c518;
+        color: #1a1508;
+        border-radius: var(--border-radius-sm);
+        font-size: 0.7rem;
+        font-weight: var(--font-weight-semibold);
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        pointer-events: none;
       }
 
       @media (max-width: 768px) {
@@ -293,7 +320,7 @@ export class MediaItem extends LitElement {
             loop
             autoplay
             playsinline
-            preload="none"
+            preload=${videoAttrs.preload}
             aria-label=${`Video preview for ${this.project.title}`}
             @loadedmetadata=${this._handleVideoLoaded}
             @error=${this._handleVideoError}
@@ -330,6 +357,10 @@ export class MediaItem extends LitElement {
 
   render() {
     return html`
+      ${this.project.browserPlayable
+        ? html`<span class="browser-badge">Try in browser</span>`
+        : ""}
+
       <div
         class="media-container"
         role="button"

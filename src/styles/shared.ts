@@ -9,7 +9,6 @@ export const sharedStyles = css`
     --color-text-secondary: #6b7280;
     --color-background: #ffffff;
     --color-border: #e5e7eb;
-    --color-overlay: rgba(0, 0, 0, 0.8);
 
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;

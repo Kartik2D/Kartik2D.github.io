@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Files vs Apps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --border: #222222;
+    --text: #e8e8e0;
+    --muted: #888880;
+    --accent: #e8c547;
+    --accent-dim: rgba(232, 197, 71, 0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    line-height: 1.75;
+    padding: 0 1.5rem;
+  }
+
+  .wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 0 8rem;
+  }
+
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 5rem;
+    font-style: italic;
+  }
+
+  /* Section headings */
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    margin-top: 4.5rem;
+  }
+
+  /* Body text */
+  p {
+    font-size: 1rem;
+    color: #ccc8c0;
+    margin-bottom: 1.4rem;
+  }
+
+  em { color: var(--text); font-style: italic; }
+
+  strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .highlight {
+    color: var(--accent);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* Pull quote */
+  .pull {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 1.5rem 1.75rem;
+    margin: 2.5rem 0;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  /* Diagram */
+  .diagram {
+    margin: 3rem 0;
+  }
+
+  .diagram-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .diagram-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .diagram-half {
+    background: var(--surface);
+    padding: 2rem 1.25rem;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .diagram-half h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* Shared 4-column layout: tools/apps, arrows, bottom row stay aligned */
+  .diagram-flow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .tool-node {
+    border: 1px solid #333;
+    background: #1a1a1a;
+    padding: 0.4rem 0.35rem;
+    font-size: 0.7rem;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1rem;
+    line-height: 1;
+    min-height: 1.25rem;
+  }
+
+  .flow-arrow--pair {
+    color: var(--text);
+    opacity: 0.55;
+    font-size: 0.85rem;
+  }
+
+  .file-node {
+    grid-column: 1 / -1;
+    border: 1px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+  }
+
+  .app-box {
+    border: 1px solid #333;
+    background: #1a1a1a;
+    padding: 0.4rem 0.35rem;
+    font-size: 0.65rem;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .prop-box {
+    border: 1px solid #444;
+    background: #161616;
+    padding: 0.4rem 0.35rem;
+    font-size: 0.6rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+    min-width: 0;
+    font-style: italic;
+  }
+
+  /* Problems list */
+  .problems {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .problem-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 0.1rem;
+    min-width: 110px;
+  }
+
+  .problem-text {
+    font-size: 0.875rem;
+    color: #aaa8a0;
+    margin: 0;
+  }
+
+  /* Tweet embed style */
+  .example-block {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .example-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  .example-content p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .example-content .quote {
+    color: var(--text);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  @media (max-width: 560px) {
+    .diagram-grid { grid-template-columns: 1fr; }
+    .diagram-flow {
+      gap: 0.35rem;
+    }
+    .tool-node,
+    .app-box,
+    .prop-box {
+      font-size: 0.6rem;
+      padding: 0.35rem 0.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <h1>Files vs Apps</h1>
+  <p class="subtitle">How AI is quietly dismantling the app-centric era of computing, and why that matters for who owns your work.</p>
+
+  <!-- Section 1: History -->
+  <h2>A brief history</h2>
+
+  <p>
+    Through the 80s and 90s, computing was <span class="highlight">file-centric</span>. Documents, spreadsheets, and code lived as <strong>independent files</strong> you could open with whatever tool you liked. A text file was a text file. You could open it in anything.
+  </p>
+
+  <p>
+    In the 2000s, <em>application ecosystems</em> took over and software became the <strong>gateway to our data</strong>. By the 2010s, we were in the <em>walled garden era</em>: apps <span class="highlight">mediated our relationship with files</span> and often <em>obscured them entirely</em> behind proprietary formats and cloud services.
+  </p>
+
+  <p>
+    Each step <span class="highlight">traded away user autonomy</span> for convenience.
+  </p>
+
+  <!-- Diagram -->
+  <div class="diagram">
+    <div class="diagram-title">Two models of computing</div>
+    <div class="diagram-grid">
+      <div class="diagram-half">
+        <h3>File-centric model</h3>
+        <div class="diagram-flow">
+          <div class="tool-node">Tool A</div>
+          <div class="tool-node">Tool B</div>
+          <div class="tool-node">Tool C</div>
+          <div class="tool-node">Tool D</div>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <div class="file-node">Plain text / Open format</div>
+        </div>
+      </div>
+      <div class="diagram-half">
+        <h3>App-centric model</h3>
+        <div class="diagram-flow">
+          <div class="app-box">App</div>
+          <div class="app-box">App</div>
+          <div class="app-box">App</div>
+          <div class="app-box">App</div>
+          <span class="flow-arrow flow-arrow--pair" aria-hidden="true">↕</span>
+          <span class="flow-arrow flow-arrow--pair" aria-hidden="true">↕</span>
+          <span class="flow-arrow flow-arrow--pair" aria-hidden="true">↕</span>
+          <span class="flow-arrow flow-arrow--pair" aria-hidden="true">↕</span>
+          <div class="prop-box">Proprietary format</div>
+          <div class="prop-box">Proprietary format</div>
+          <div class="prop-box">Proprietary format</div>
+          <div class="prop-box">Proprietary format</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Problems -->
+  <h2>The cost of app-centrism</h2>
+
+  <p>
+    <span class="highlight">Vendor lock-in</span> holds creative work <em>hostage</em> to specific companies and their business models. <strong>Format obsolescence</strong> threatens its <em>longevity</em>: what happens to your Notion database if the company disappears? <span class="highlight">Data portability</span> is an <em>afterthought</em> on most platforms, and <strong>subscription fatigue</strong> grows as we pay monthly fees for <em>access to our own work</em>. The incentives of the companies that build apps have drifted away from the needs of the people who create inside them.
+  </p>
+
+  <!-- Section 3: Enter AI -->
+  <h2>Enter AI</h2>
+
+  <p>
+    What users actually want is to <span class="highlight">transform their data</span>. The interface is just the means. Traditional applications bundle interfaces, features, and file formats into inseparable units; AI <em>unbundles them</em>, allowing each to evolve independently.
+  </p>
+
+  <div class="pull">
+    The request changes from "I need Photoshop" to "I need to edit this image."
+  </div>
+
+  <p>
+    When that happens, the interface stops being something you invest years learning. It becomes <em>disposable</em>. The data underneath is <strong>what lasts</strong>.
+  </p>
+
+  <!-- Section 4: Examples -->
+  <h2>What this looks like in practice</h2>
+
+  <div class="example-block">
+    <div class="example-icon">⬡</div>
+    <div class="example-content">
+      <p>Instead of buying Adobe Illustrator and learning it, a user might simply ask an AI to:</p>
+      <p class="quote">"Code me a custom SVG editor that precisely fits my needs."</p>
+    </div>
+  </div>
+
+  <div class="example-block">
+    <div class="example-icon">⬡</div>
+    <div class="example-content">
+      <p>Instead of subscribing to a data visualization platform:</p>
+      <p class="quote">"Build me a data visualization directly from this dataset."</p>
+    </div>
+  </div>
+
+  <div class="example-block">
+    <div class="example-icon">⬡</div>
+    <div class="example-content">
+      <p>Instead of bending your workflow to fit Notion:</p>
+      <p class="quote">"Create a custom markdown editor aligned with my exact workflow."</p>
+    </div>
+  </div>
+
+  <p>
+    In each case, a <strong>purpose-built tool</strong> replaces a general-purpose application. The app becomes an output you generate on demand, fitted to the job at hand.
+  </p>
+
+  <p>
+    We may be circling back, in a strange way, to something like the file-centric model. The tool becomes invisible. The work remains yours.
+  </p>
+
+  <!-- Section 5: Conclusion -->
+  <h2>What app designers can learn from this</h2>
+
+  <p>
+    The rise of AI-generated, purpose-built tools is a signal. Users abandon apps that make them <em>serve the tool</em>.
+  </p>
+
+  <p>
+    The designers who do well in the coming years will be the ones who treat <strong>the user's outcome as the product</strong>. That reframe has real consequences. Data portability becomes a day-one priority and a statement of trust. Feature checklists matter less than the amount of friction sitting between the user and what they came to do.
+  </p>
+
+  <div class="pull">
+    The best apps of the next decade will be transparent pipes: opinionated about workflow, humble about ownership.
+  </div>
+
+  <p>
+    There's also a lesson about format. When an AI can generate a bespoke tool in minutes, lock-in stops working as a retention strategy — it just gives people a reason to leave. The proprietary format has turned from moat into liability. Export-first thinking is good product strategy, and good ethics too.
+  </p>
+
+  <p>
+    Finally, AI should push designers to ask <em>what makes a general-purpose app worth using at all</em>. The answer, increasingly, is community and trust — things a generated tool can't replicate. Build around those, and no prompt can replace you.
+  </p>
+
+</div>
+</body>
+</html>
