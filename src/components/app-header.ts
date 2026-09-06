@@ -1,9 +1,11 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { sharedStyles, buttonStyles, layoutStyles } from "../styles/shared.js";
 
 @customElement("app-header")
 export class AppHeader extends LitElement {
+  @property({ type: Boolean }) showBack = false;
+
   static styles = [
     sharedStyles,
     buttonStyles,
@@ -53,6 +55,26 @@ export class AppHeader extends LitElement {
         font-size: var(--font-size-sm);
       }
 
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: transparent;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-sm);
+        color: var(--color-text-secondary);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .back-btn:hover {
+        background: var(--color-border);
+        color: var(--color-text-primary);
+      }
+
       @media (max-width: 768px) {
         .header-content {
           height: var(--header-height-mobile);
@@ -71,14 +93,30 @@ export class AppHeader extends LitElement {
     `,
   ];
 
+  private _handleBack = () => {
+    this.dispatchEvent(new CustomEvent("back", { bubbles: true }));
+  };
+
   render() {
     return html`
       <header>
         <div class="header-content">
-          <div class="brand">
-            <h1 class="brand-title">Kartik Vinayak</h1>
-            <p class="brand-subtitle">Motion & Interactive Design</p>
-          </div>
+          ${this.showBack
+            ? html`
+                <button
+                  class="back-btn"
+                  @click=${this._handleBack}
+                  aria-label="Back to projects"
+                >
+                  &larr; Back to projects
+                </button>
+              `
+            : html`
+                <div class="brand">
+                  <h1 class="brand-title">Kartik Vinayak</h1>
+                  <p class="brand-subtitle">Motion & Interactive Design</p>
+                </div>
+              `}
           <a
             class="btn btn-primary contact-btn"
             href="mailto:kartikvinayak3@gmail.com"

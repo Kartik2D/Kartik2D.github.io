@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { sharedStyles, buttonStyles } from "../styles/shared.js";
+import { getTagColor } from "../utils/tag-colors.js";
 
 @customElement("tag-filter-bar")
 export class TagFilterBar extends LitElement {
@@ -38,20 +39,38 @@ export class TagFilterBar extends LitElement {
 
       .chip {
         padding: var(--spacing-xs) var(--spacing-md);
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-base);
         font-weight: var(--font-weight-medium);
         border-radius: 999px;
         white-space: nowrap;
       }
 
-      .chip[aria-pressed="true"] {
+      .chip-all[aria-pressed="true"] {
         background: var(--color-primary);
         color: white;
         border-color: var(--color-primary);
       }
 
-      .chip[aria-pressed="true"]:hover {
+      .chip-all[aria-pressed="true"]:hover {
         background: var(--color-primary-hover);
+      }
+
+      .tag-chip {
+        background: var(--tag-bg);
+        color: var(--tag-fg);
+        border-color: var(--tag-bg);
+      }
+
+      .tag-chip[aria-pressed="false"] {
+        opacity: 0.55;
+      }
+
+      .tag-chip[aria-pressed="false"]:hover {
+        opacity: 0.8;
+      }
+
+      .tag-chip[aria-pressed="true"]:hover {
+        filter: brightness(0.92);
       }
 
       @media (max-width: 768px) {
@@ -81,24 +100,26 @@ export class TagFilterBar extends LitElement {
         <div class="chips">
           <button
             type="button"
-            class="btn btn-secondary chip"
+            class="btn btn-secondary chip chip-all"
             aria-pressed=${this.selectedTag === undefined ? "true" : "false"}
             @click=${() => this._select(undefined)}
           >
             All
           </button>
-          ${this.tags.map(
-            (tag) => html`
+          ${this.tags.map((tag) => {
+            const { background, color } = getTagColor(tag);
+            return html`
               <button
                 type="button"
-                class="btn btn-secondary chip"
+                class="btn btn-secondary chip tag-chip"
+                style="--tag-bg: ${background}; --tag-fg: ${color};"
                 aria-pressed=${this.selectedTag === tag ? "true" : "false"}
                 @click=${() => this._select(tag)}
               >
                 ${tag}
               </button>
-            `
-          )}
+            `;
+          })}
         </div>
       </nav>
     `;

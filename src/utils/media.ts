@@ -31,7 +31,7 @@ export function getVideoAttributes(context: "preview" | "detail" = "preview") {
     playsInline: true,
     loop: true,
     autoplay: true,
-    preload: "metadata" as const,
+    preload: "auto" as const,
   };
 
   if (context === "preview") {

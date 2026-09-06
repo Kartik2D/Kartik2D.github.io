@@ -21,7 +21,6 @@ export class PortfolioApp extends LitElement {
 
   private _loadedThumbnails = new Set<string>();
   private _totalThumbnails = 0;
-  private _loadingTimeoutId?: number;
 
   static styles = [
     sharedStyles,
@@ -114,76 +113,40 @@ export class PortfolioApp extends LitElement {
       "thumbnail-loaded",
       this._handleThumbnailLoaded as EventListener
     );
-    if (this._loadingTimeoutId !== undefined) {
-      window.clearTimeout(this._loadingTimeoutId);
-    }
   }
 
   private _initializeApp() {
     this._setViewportHeight();
     this._checkMobile();
     this._countTotalThumbnails();
-    this._startLoadingTimeout();
   }
 
   private _countTotalThumbnails() {
-    // Count all media thumbnails that will be loaded in the grid view
-    // (i.e., the primary/first media item of each project)
     this._totalThumbnails = PROJECTS.reduce((count, project) => {
-      const primaryMedia = project.media[0];
-      return primaryMedia &&
-        (primaryMedia.type === "video" || primaryMedia.type === "image")
+      const thumbnail = project.thumbnail;
+      return thumbnail &&
+        (thumbnail.type === "video" || thumbnail.type === "image")
         ? count + 1
         : count;
     }, 0);
 
-    console.log(
-      `Loading screen waiting for ${this._totalThumbnails} thumbnails to load`
-    );
-
-    // If there are no thumbnails to load, hide loading immediately
     if (this._totalThumbnails === 0) {
       this._hideLoading();
     }
   }
 
-  private _startLoadingTimeout() {
-    // Safari can delay or skip video metadata loading for autoplay previews.
-    // Keep the loading screen from blocking the entire portfolio indefinitely.
-    this._loadingTimeoutId = window.setTimeout(() => {
-      console.warn("Loading timeout reached, showing portfolio anyway");
-      this._hideLoading();
-    }, 2500);
-  }
-
   private _handleThumbnailLoaded = (event: Event) => {
-    const customEvent = event as CustomEvent;
-    const { mediaSrc } = customEvent.detail;
+    const { mediaSrc } = (event as CustomEvent).detail;
     this._loadedThumbnails.add(mediaSrc);
 
-    console.log(
-      `Thumbnail loaded: ${mediaSrc.split("/").pop()} (${
-        this._loadedThumbnails.size
-      }/${this._totalThumbnails})`
-    );
-
-    // Check if all thumbnails have loaded
     if (this._loadedThumbnails.size >= this._totalThumbnails) {
-      console.log("All thumbnails loaded, hiding loading screen");
-      // Add a small delay for smooth UX
-      setTimeout(() => {
-        this._hideLoading();
-      }, 300);
+      this._hideLoading();
     }
   };
 
   private _hideLoading() {
     if (!this._appState.isLoading) {
       return;
-    }
-    if (this._loadingTimeoutId !== undefined) {
-      window.clearTimeout(this._loadingTimeoutId);
-      this._loadingTimeoutId = undefined;
     }
     this._appState = {
       ...this._appState,
@@ -270,7 +233,10 @@ export class PortfolioApp extends LitElement {
               ></loading-screen>
             `}
 
-        <app-header></app-header>
+        <app-header
+          .showBack=${!!selected}
+          @back=${this._handleBack}
+        ></app-header>
 
         <tag-filter-bar
           class=${selected ? "hidden" : ""}
@@ -287,10 +253,7 @@ export class PortfolioApp extends LitElement {
 
         ${selected
           ? html`
-              <project-page
-                .project=${selected}
-                @back=${this._handleBack}
-              ></project-page>
+              <project-page .project=${selected}></project-page>
             `
           : ""}
       </div>

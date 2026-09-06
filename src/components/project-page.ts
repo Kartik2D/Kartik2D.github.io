@@ -3,6 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { sharedStyles, buttonStyles, mediaStyles } from "../styles/shared.js";
 import { getYouTubeEmbedUrl } from "../utils/media.js";
+import { getTagColor } from "../utils/tag-colors.js";
 import type { Project } from "../types.js";
 
 @customElement("project-page")
@@ -27,27 +28,6 @@ export class ProjectPage extends LitElement {
         max-width: 800px;
         margin: 0 auto;
         padding: var(--spacing-xl);
-      }
-
-      .back-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--spacing-xs);
-        margin-bottom: var(--spacing-lg);
-        padding: var(--spacing-sm) var(--spacing-md);
-        background: transparent;
-        border: 1px solid var(--color-border);
-        border-radius: var(--border-radius-sm);
-        color: var(--color-text-secondary);
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        cursor: pointer;
-        transition: all var(--transition-fast);
-      }
-
-      .back-btn:hover {
-        background: var(--color-border);
-        color: var(--color-text-primary);
       }
 
       .page-title {
@@ -79,7 +59,6 @@ export class ProjectPage extends LitElement {
       .detail-item {
         padding: var(--spacing-md) var(--spacing-lg);
         border-radius: var(--border-radius-md);
-        border-left: 3px solid var(--detail-accent);
         background: var(--detail-bg);
       }
 
@@ -249,12 +228,11 @@ export class ProjectPage extends LitElement {
       }
 
       .tag {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        background: var(--color-border);
-        color: var(--color-text-secondary);
-        border-radius: var(--border-radius-sm);
+        padding: 0.35rem var(--spacing-sm);
+        border-radius: 999px;
         font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
+        font-weight: var(--font-weight-semibold);
+        line-height: 1.2;
       }
 
       @media (max-width: 768px) {
@@ -268,10 +246,6 @@ export class ProjectPage extends LitElement {
       }
     `,
   ];
-
-  private _handleBack = () => {
-    this.dispatchEvent(new CustomEvent("back", { bubbles: true }));
-  };
 
   private _renderDetails() {
     const details = this.project?.details;
@@ -392,10 +366,6 @@ export class ProjectPage extends LitElement {
 
     return html`
       <div class="page-content">
-        <button class="back-btn" @click=${this._handleBack}>
-          &larr; Back to projects
-        </button>
-
         <div class="page-header">
           <h1 class="page-title">${this.project.title}</h1>
           <p class="page-description">${this.project.description}</p>
@@ -404,9 +374,14 @@ export class ProjectPage extends LitElement {
           ${this.project.tags?.length
             ? html`
                 <div class="tag-list">
-                  ${this.project.tags.map(
-                    (tag) => html`<span class="tag">${tag}</span>`
-                  )}
+                  ${this.project.tags.map((tag) => {
+                    const { background, color } = getTagColor(tag);
+                    return html`<span
+                      class="tag"
+                      style="background: ${background}; color: ${color};"
+                      >${tag}</span
+                    >`;
+                  })}
                 </div>
               `
             : ""}

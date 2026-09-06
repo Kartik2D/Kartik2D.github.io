@@ -1,7 +1,8 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, property, state, query } from "lit/decorators.js";
 import { sharedStyles, mediaStyles } from "../styles/shared.js";
 import { getYouTubeEmbedUrl, getVideoAttributes } from "../utils/media.js";
+import { getTagColor } from "../utils/tag-colors.js";
 import type { Project } from "../types.js";
 
 @customElement("media-item")
@@ -11,7 +12,10 @@ export class MediaItem extends LitElement {
   @state() private _isHovered = false;
   @state() private _isVisible = false;
 
+  @query(".info-pane") private _infoPane?: HTMLElement;
+
   private _intersectionObserver?: IntersectionObserver;
+  private _resizeObserver?: ResizeObserver;
   private _videoElement?: HTMLVideoElement;
 
   static styles = [
@@ -46,12 +50,37 @@ export class MediaItem extends LitElement {
         display: block;
       }
 
-      .media-overlay {
+      /* Sliding stack: badges sit on top, info pane underneath, both rise together. */
+      .info-stack {
         position: absolute;
-        bottom: 0;
         left: 0;
         right: 0;
-        /* Top of overlay contains the title — avoid transparent stops so light thumbnails don’t wash out white text. */
+        bottom: 0;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        transform: translateY(var(--info-offset, 100%));
+        transition: transform var(--transition-normal);
+      }
+
+      :host(:hover) .info-stack,
+      :host([hovered]) .info-stack,
+      :host([selected]) .info-stack {
+        transform: translateY(0);
+      }
+
+      .badges-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-sm) var(--spacing-md);
+        pointer-events: none;
+      }
+
+      .info-pane {
+        /* Avoid transparent stops so light thumbnails don’t wash out white text. */
         background: linear-gradient(
           to bottom,
           rgba(0, 0, 0, 0.82) 0%,
@@ -60,9 +89,6 @@ export class MediaItem extends LitElement {
         );
         color: white;
         padding: var(--spacing-md);
-        transform: translateY(100%);
-        transition: transform var(--transition-normal);
-        z-index: 1;
       }
 
       :host(:hover) .media-container,
@@ -82,13 +108,7 @@ export class MediaItem extends LitElement {
         transform: scale(1.05);
       }
 
-      :host(:hover) .media-overlay,
-      :host([hovered]) .media-overlay,
-      :host([selected]) .media-overlay {
-        transform: translateY(0);
-      }
-
-      :host([selected]) .media-overlay {
+      :host([selected]) .info-pane {
         background: linear-gradient(
           to bottom,
           rgba(0, 0, 0, 0.8) 0%,
@@ -112,34 +132,51 @@ export class MediaItem extends LitElement {
       .tag-list {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: flex-end;
         gap: var(--spacing-xs);
+      }
+
+      .more-info {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2em;
         margin-top: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: #a5b4fc;
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 1px;
+      }
+
+      .more-info .arrow {
+        transition: transform var(--transition-fast);
+      }
+
+      :host(:hover) .more-info,
+      :host([hovered]) .more-info {
+        color: #c7d2fe;
+      }
+
+      :host(:hover) .more-info .arrow,
+      :host([hovered]) .more-info .arrow {
+        transform: translateX(3px);
       }
 
       .tag {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: var(--border-radius-sm);
-        font-size: 0.75rem;
-        font-weight: var(--font-weight-medium);
-        color: white;
-      }
-
-      .browser-badge {
-        position: absolute;
-        bottom: var(--spacing-sm);
-        right: var(--spacing-sm);
-        z-index: 4;
-        padding: var(--spacing-xs) var(--spacing-sm);
-        background: #f5c518;
-        color: #1a1508;
-        border-radius: var(--border-radius-sm);
-        font-size: 0.7rem;
+        padding: 0.35rem var(--spacing-sm);
+        border-radius: 999px;
+        font-size: var(--font-size-base);
         font-weight: var(--font-weight-semibold);
-        letter-spacing: 0.02em;
         line-height: 1.2;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
         pointer-events: none;
+      }
+
+      .browser-badge {
+        background: #f5c518;
+        color: #1a1508;
       }
 
       @media (max-width: 768px) {
@@ -183,7 +220,27 @@ export class MediaItem extends LitElement {
     if (this._intersectionObserver) {
       this._intersectionObserver.disconnect();
     }
+    if (this._resizeObserver) {
+      this._resizeObserver.disconnect();
+    }
   }
+
+  firstUpdated() {
+    if (this._infoPane) {
+      this._updateInfoOffset();
+      this._resizeObserver = new ResizeObserver(() => this._updateInfoOffset());
+      this._resizeObserver.observe(this._infoPane);
+    }
+  }
+
+  private _updateInfoOffset = () => {
+    if (this._infoPane) {
+      this.style.setProperty(
+        "--info-offset",
+        `${this._infoPane.offsetHeight}px`
+      );
+    }
+  };
 
   private _handleTouchStart = () => {
     this._isHovered = true;
@@ -285,19 +342,17 @@ export class MediaItem extends LitElement {
         entries.forEach((entry) => {
           this._isVisible = entry.isIntersecting;
           if (entry.isIntersecting && this._videoElement) {
-            // Try to play video when it comes into view
             this._videoElement.play().catch(() => {
               // Autoplay failed - video will play on user interaction
             });
           } else if (!entry.isIntersecting && this._videoElement) {
-            // Pause video when it goes out of view to save bandwidth
             this._videoElement.pause();
           }
         });
       },
       {
-        threshold: 0.5, // Play when 50% visible
-        rootMargin: "50px", // Start loading slightly before entering viewport
+        threshold: 0.5,
+        rootMargin: "50px",
       }
     );
 
@@ -322,7 +377,7 @@ export class MediaItem extends LitElement {
             playsinline
             preload=${videoAttrs.preload}
             aria-label=${`Video preview for ${this.project.title}`}
-            @loadedmetadata=${this._handleVideoLoaded}
+            @loadeddata=${this._handleVideoLoaded}
             @error=${this._handleVideoError}
           ></video>
         `;
@@ -344,7 +399,6 @@ export class MediaItem extends LitElement {
             class="media-element"
             src=${thumbnail.src}
             alt=${thumbnail.alt || this.project.title}
-            loading="lazy"
             decoding="async"
             @load=${this._handleImageLoaded}
             @error=${this._handleImageError}
@@ -356,11 +410,9 @@ export class MediaItem extends LitElement {
   }
 
   render() {
-    return html`
-      ${this.project.browserPlayable
-        ? html`<span class="browser-badge">Try in browser</span>`
-        : ""}
+    const tags = this.project.tags?.slice(0, 3) ?? [];
 
+    return html`
       <div
         class="media-container"
         role="button"
@@ -368,20 +420,40 @@ export class MediaItem extends LitElement {
         aria-label=${`View ${this.project.title} project details`}
       >
         ${this._renderMedia()}
+      </div>
 
-        <div class="media-overlay">
+      <div class="info-stack">
+        ${tags.length || this.project.browserPlayable
+          ? html`
+              <div class="badges-row">
+                ${tags.length
+                  ? html`
+                      <div class="tag-list">
+                        ${tags.map((tag) => {
+                          const { background, color } = getTagColor(tag);
+                          return html`<span
+                            class="tag"
+                            style="background: ${background}; color: ${color};"
+                            >${tag}</span
+                          >`;
+                        })}
+                      </div>
+                    `
+                  : ""}
+                ${this.project.browserPlayable
+                  ? html`<span class="tag browser-badge">Try in browser</span>`
+                  : ""}
+              </div>
+            `
+          : ""}
+
+        <div class="info-pane">
           <h3 class="media-title">${this.project.title}</h3>
           <p class="media-description">${this.project.description}</p>
 
-          ${this.project.tags?.length
-            ? html`
-                <div class="tag-list">
-                  ${this.project.tags
-                    .slice(0, 3)
-                    .map((tag) => html`<span class="tag">${tag}</span>`)}
-                </div>
-              `
-            : ""}
+          <span class="more-info"
+            >More info <span class="arrow" aria-hidden="true">&rarr;</span></span
+          >
         </div>
       </div>
     `;
