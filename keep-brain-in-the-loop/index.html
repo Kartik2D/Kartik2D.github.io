@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keep Your Brain in the Loop</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main id="deck" class="deck" tabindex="0" aria-label="Lecture slides">
+
+    <section class="slide title-slide active" data-title="Keep Your Brain in the Loop">
+      <div class="slide-inner">
+        <div class="title-row">
+          <img class="title-icon" src="images/brain.svg" alt="" />
+          <div>
+            <h1>Keep Your Brain in the Loop</h1>
+          </div>
+        </div>
+        <p class="subtitle">What AI actually is, and how to use it <mark>without letting it do your thinking</mark>.</p>
+        <p class="meta-line">Kartik Vinayak · designer and programmer · San Francisco</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="A strange tool in your pocket">
+      <div class="slide-inner">
+        <h1>A strange tool in your pocket</h1>
+        <p>Most of you have an AI on your phone. It can write an essay in ten seconds, explain a chapter, or translate a paragraph. How does it work?</p>
+        <p>Tonight has two parts. First, <mark>what this machine is and where it came from</mark>. Then, <mark>how to use it so you get stronger, not weaker</mark>.</p>
+        <p>One question runs through all of it: when a machine can produce the words, <mark>who is doing the thinking?</mark></p>
+      </div>
+    </section>
+
+    <section class="slide iframe-slide" data-title="Who I am">
+      <div class="slide-inner">
+        <h1>Who I am</h1>
+        <p class="meta-line">Kartik Vinayak · designer and programmer · I use AI every day for my work</p>
+        <div class="iframe-frame" data-stop-nav>
+          <iframe src="https://kartik2d.github.io/" title="Who I am"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Agenda">
+      <div class="slide-inner">
+        <h1>Agenda</h1>
+        <ol class="agenda-list">
+          <li>
+            <div>
+              <span class="ag-title"><strong>Where did AI come from?</strong></span>
+              <span class="ag-q"><em>What is this machine actually doing?</em></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="ag-title"><strong>Whose knowledge?</strong></span>
+              <span class="ag-q"><em>Whose world trained this model, and who is paying for it?</em></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="ag-title"><strong>Protect your thinking</strong></span>
+              <span class="ag-q"><em>Will this make me stronger tomorrow, or only faster tonight?</em></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="ag-title"><strong>Keywords vs natural language</strong></span>
+              <span class="ag-q"><em>Can I turn this answer into keywords I own?</em></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="ag-title"><strong>Files, apps, and ownership</strong></span>
+              <span class="ag-q"><em>Do I own my work, or does the app own me?</em></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="ag-title"><strong>Habits + practice</strong></span>
+              <span class="ag-q"><em>Am I practicing, or just prompting?</em></span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span class="ag-title"><strong>Pocket checklist</strong></span>
+              <span class="ag-q"><em>Which questions will I ask every time?</em></span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="A fight about free will">
+      <div class="slide-inner">
+        <p class="section-num">Chapter 1</p>
+        <h1>A fight about free will</h1>
+        <p class="guiding">Where did AI come from? It starts with two mathematicians who could not stand each other.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Two mathematicians, one big question">
+      <div class="slide-inner">
+        <div class="with-fig">
+          <div>
+            <h1>Two mathematicians, one big question</h1>
+            <p>Russia, 1902. Pavel Nekrasov, a deeply religious mathematician, claimed he could use math to prove that humans have free will.</p>
+            <p>His argument: the law of large numbers says averages settle down when something happens many times, like coin flips. Nekrasov believed this only works when each event is <mark>independent</mark> of the others. Society's numbers, like marriages and crimes per year, are very stable. So, he said, people must be making <mark>free, independent choices</mark>.</p>
+            <p>Andrey Markov, an atheist in St. Petersburg, thought this was bad math. <mark>He set out to prove it wrong.</mark></p>
+          </div>
+          <figure class="fig portrait">
+            <img src="images/markov.jpg" alt="Portrait of Andrey Markov" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Markov counts letters">
+      <div class="slide-inner">
+        <h1>Markov counts letters</h1>
+        <p>In 1913, Markov took the first 20,000 letters of <em>Eugene Onegin</em>, Pushkin's famous poem, and counted them by hand. About 43% were vowels.</p>
+        <p>If letters were independent, like coin flips, there should have been about 3,700 pairs of vowels in a row. He found only 1,104. Each letter clearly <mark>depends on the one before it</mark>.</p>
+        <p>And yet the averages were still perfectly stable. So stable statistics do not require independence. <mark>Nekrasov's proof was broken.</mark></p>
+        <p>These linked sequences are now called <mark>Markov chains</mark>.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What Markov actually showed">
+      <div class="slide-inner">
+        <h1>What Markov actually showed</h1>
+        <p>Markov did not settle free will. He showed something simpler: <mark>language has patterns you can count</mark>. Each letter makes some next letters more likely than others.</p>
+        <p>Counting those patterns tells you <mark>what usually comes next</mark>. It tells you nothing about <mark>what the writer meant</mark>. That gap, between predicting words and meaning them, is exactly where today's AI lives.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="From chains to chatbots">
+      <div class="slide-inner">
+        <h1>From chains to chatbots</h1>
+        <p>In 1948, Claude Shannon used Markov's idea to generate fake English. He counted which word tends to follow which, then picked the next word by chance. The result looked a bit like English and meant nothing.</p>
+        <p>The problem was memory. These chains could only look back a few words. In 2017, Google researchers published the <mark>transformer</mark>, a design that lets a model look at every word in a passage at once and weigh which ones matter for the next word.</p>
+        <p>Train a transformer on a huge part of the internet and you get a <mark>large language model</mark>. ChatGPT launched in November 2022. Gemini and Claude work the same way.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="You are a language model too">
+      <div class="slide-inner">
+        <h1>You are a language model too</h1>
+        <p>Finish these out loud:</p>
+        <ul class="tight">
+          <li>Once upon a ...</li>
+          <li>Happy birthday to ...</li>
+          <li>The sun rises in the ...</li>
+        </ul>
+        <p>You did not look anything up. You just knew what usually comes next. <mark>That is exactly what these models do</mark>, one word at a time, for everything they write.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="So what is an AI model, really?">
+      <div class="slide-inner">
+        <h1>So what is an AI model, really?</h1>
+        <p>It runs a simple loop: <mark>read the text so far, guess the next word, add it, repeat</mark>. The guesses come from patterns in billions of pages of human writing.</p>
+        <p>After that, people rate its answers, and it is trained to give the kind of answers people rate highly: helpful, polite, confident.</p>
+        <p>The result is <mark>fluent</mark>. But fluency is a pattern, not a promise. <mark>Plausible is not the same as true.</mark></p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Fluent, confident, and wrong">
+      <div class="slide-inner">
+        <h1>Fluent, confident, and wrong</h1>
+        <p>In 2023, two lawyers in New York used ChatGPT to research a court case. It gave them six earlier cases to cite, with names, dates and quotes.</p>
+        <p><mark>None of those cases existed.</mark> The model had produced text that looked exactly like real legal citations. The judge fined the lawyers $5,000.</p>
+        <p>The model was not lying. It has no idea what is true. It was doing its job: <mark>producing the most likely-looking next words</mark>.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Trained to please">
+      <div class="slide-inner">
+        <h1>Trained to please</h1>
+        <p>In April 2025, OpenAI had to undo an update to ChatGPT. It had become so eager to please that it praised bad ideas and agreed with users even when they were wrong.</p>
+        <p>OpenAI explained it had listened too much to thumbs-up clicks. People click thumbs-up on answers they <mark>like</mark>, not answers that are <mark>right</mark>.</p>
+        <p>So these tools are pulled toward telling you what you want to hear. That is an old trap.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="ELIZA already knew this trap">
+      <div class="slide-inner">
+        <div class="with-fig">
+          <div>
+            <h1>ELIZA already knew this trap</h1>
+            <p>In 1966, Joseph Weizenbaum at MIT built ELIZA, a very simple chatbot. It mostly repeated your own words back as questions.</p>
+            <p>His secretary knew it was just a program. After a few messages, she asked him to <mark>leave the room</mark> so she could talk to it in private.</p>
+            <p>This is called the <mark>ELIZA effect</mark>: we treat fluent text like a mind that cares. Today the text is far more fluent.</p>
+            <blockquote>Question to keep: <em>Is this answer checked, or just fluent?</em></blockquote>
+          </div>
+          <figure class="fig">
+            <img src="images/eliza.png" alt="Screenshot of an ELIZA-style chatbot conversation" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="Whose world is inside?">
+      <div class="slide-inner">
+        <p class="section-num">Chapter 2</p>
+        <h1>Whose world is inside?</h1>
+        <p class="guiding">Every model is built from someone's words. Whose?</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Every model has a home">
+      <div class="slide-inner">
+        <h1>Every model has a home</h1>
+        <p>The best known models are built by a handful of companies, mostly in California, and trained mostly on the public web.</p>
+        <p>On Common Crawl, the giant web archive most models learn from, about <mark>40% of pages are English</mark>. Hindi is about 0.2%. Punjabi is about 0.1%. Hundreds of millions of people, almost invisible.</p>
+        <p>So a &quot;neutral&quot; answer is usually a blend of the <mark>English speaking internet</mark>: its examples, its values, its blind spots.</p>
+        <blockquote>Question to keep: <em>Whose world trained this model? Does this answer fit my place and my life?</em></blockquote>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Who is paying for this?">
+      <div class="slide-inner">
+        <h1>Who is paying for this?</h1>
+        <p>These models cost billions of dollars to build. When the app is free, <mark>you pay with your data</mark>.</p>
+        <p>Google's own Gemini privacy page says human reviewers read some chats, reviewed chats are kept for up to three years, and <mark>you should not enter anything confidential</mark>.</p>
+        <ul class="tight">
+          <li>Never paste in anything private: IDs, passwords, family problems, health details.</li>
+          <li>Use temporary chat, or turn off activity saving.</li>
+          <li>Do not build your whole study routine on a free tier that can change any day.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="Protect your thinking">
+      <div class="slide-inner">
+        <p class="section-num">Chapter 3</p>
+        <h1>Protect your thinking</h1>
+        <p class="guiding">Will this make me stronger tomorrow, or only faster tonight?</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The trap: rented fluency">
+      <div class="slide-inner">
+        <h1>The trap: rented fluency</h1>
+        <p>If the model does the finding, the reading and the thinking, you get <mark>rented fluency</mark>. You can produce good sounding answers, but only while the app is open.</p>
+        <p>Think of calculators. They did not destroy math. What hurts is using one <mark>before you understand the operation</mark>. Then you cannot tell when the answer is wrong.</p>
+        <p>AI is the same, for writing, reading, and reasoning.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What the research is finding">
+      <div class="slide-inner">
+        <h1>What the research is finding</h1>
+        <p><strong>MIT, 2025.</strong> 54 students wrote essays with ChatGPT, with Google, or with no tools, while their brain activity was measured. Minutes after finishing, <mark>83% of the ChatGPT group could not quote a single sentence from their own essay</mark>. In the other two groups, 11% could not.</p>
+        <p><strong>Wharton, 2025.</strong> Over 10,000 people learned a topic either from an AI summary or from normal Google links. The AI group <mark>learned less</mark>, even when both groups saw the same facts. Many did not click the source links placed right beside the summary.</p>
+        <p>These are early studies. But they point the same way.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The struggle is the workout">
+      <div class="slide-inner">
+        <h1>The struggle is the workout</h1>
+        <p>Psychologists call it <mark>desirable difficulty</mark>: effort that feels slow and annoying is often exactly what makes learning stick.</p>
+        <p>You do not get stronger by watching someone else lift weights. Searching, comparing, getting confused and figuring it out is the lift.</p>
+        <p>AI can take away all of that effort. It feels kind. It quietly takes away the workout.</p>
+        <blockquote>Question to keep: <em>Will this make me stronger tomorrow, or only faster tonight?</em></blockquote>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="The hidden gate">
+      <div class="slide-inner">
+        <p class="section-num">Chapter 4</p>
+        <h1>The hidden gate</h1>
+        <p class="guiding">The internet has a vocabulary lock. AI can be the key, if you use it right.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Where you live matters less than it used to">
+      <div class="slide-inner">
+        <h1>Where you live matters less than it used to</h1>
+        <p>The internet made it possible to do information work from anywhere. That is why so much of the world's software is built in India.</p>
+        <p>AI goes one step further. Expert knowledge that used to live in certain schools, offices, and cities is now <mark>one question away, wherever you are</mark>.</p>
+        <p>But only <mark>if you know what to ask</mark>. That is the hidden gate.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The internet has a vocabulary lock">
+      <div class="slide-inner">
+        <h1>The internet has a vocabulary lock</h1>
+        <p>Every field has its own vocabulary. Search &quot;my program keeps crashing&quot; and you get noise. Search the exact term a programmer would use and the answer appears.</p>
+        <p>Those expert words are <mark>institutional knowledge</mark>. Nobody is born with them. They get passed from person to person, in classrooms, offices, and conversations.</p>
+        <p>The internet has been open to everyone for 30 years. But to search it well, you need the right words first. I hit this wall every time I start learning something new. <mark>The door is open. The key is vocabulary.</mark></p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The caveman search">
+      <div class="slide-inner">
+        <h1>The caveman search</h1>
+        <p>Before about 2019, Google mostly matched keywords, so the best searches were short. Caveman speech. Before that, people used the index at the back of a book.</p>
+        <p>Every hunt taught you a few new words, and those words made the next hunt easier. Slowly you built an <mark>internal library</mark>.</p>
+        <p>AI lets you just ask in plain language. That is a gift, because it gets you past the lock. It is also a risk, because <mark>it skips the hunt that built the library</mark>.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="The turning point: reverse engineer the answer">
+      <div class="slide-inner">
+        <h1>The turning point: reverse engineer the answer</h1>
+        <p>Natural language is a great way in. The trick is to <mark>not stop at the answer</mark>.</p>
+        <ol>
+          <li>Ask AI in plain language, even in Punjabi or Hindi.</li>
+          <li><mark>Write down the expert words in its answer.</mark></li>
+          <li>Search those words yourself: Google, Wikipedia, YouTube, a textbook.</li>
+          <li>Save them in your own notes.</li>
+        </ol>
+        <p>Now the AI has handed you the key, and you have practiced using it.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What that looks like">
+      <div class="slide-inner">
+        <h1>What that looks like</h1>
+        <p>A plain question: <em>&quot;Why do farmers here burn the fields after harvest, and why does the air get so bad?&quot;</em></p>
+        <p>A good answer will use words like these:</p>
+        <ul class="tight">
+          <li><mark>stubble burning</mark></li>
+          <li><mark>crop residue management</mark></li>
+          <li><mark>Happy Seeder</mark></li>
+          <li><mark>PM2.5</mark> and <mark>air quality index</mark></li>
+        </ul>
+        <p>Those words are the real prize. Search each one. Next time, you can type what an expert would type, <mark>with or without the AI</mark>.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Keywords are keys you own">
+      <div class="slide-inner">
+        <h1>Keywords are keys you own</h1>
+        <p>The answer from the chat disappears when you close the app. The keywords stay with you.</p>
+        <p>They work in Google, on YouTube, in a library, in a job interview, and in a conversation with an expert. They work when the AI is wrong, and when the app changes or goes away.</p>
+        <blockquote>Question to keep: <em>Can I turn this answer into keywords I own?</em></blockquote>
+        <p>So where do you keep them?</p>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="Where does your library live?">
+      <div class="slide-inner">
+        <p class="section-num">Chapter 5</p>
+        <h1>Where does your library live?</h1>
+        <p class="guiding">Files, then apps, then files again.</p>
+      </div>
+    </section>
+
+    <section class="slide models-slide" data-title="Files, then apps, then files again">
+      <div class="slide-inner">
+        <h1>Files, then apps, then files again</h1>
+        <img class="model-diagram" src="images/files-vs-apps.svg" alt="File-centric: several tools open one shared plain-text file. App-centric: each app keeps its own proprietary format." />
+        <p class="cost-line">In the 1980s and 90s, your work was a file you could open in any program. Then apps took over: your notes and documents now live inside an app, in its format, reached only its way. AI swings the pendulum back, because any AI tool can read a plain text file.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Plain text is forever">
+      <div class="slide-inner">
+        <h1>Plain text is forever</h1>
+        <p>A plain text file opens on any phone or computer, in any app, today or in thirty years. You can move it, copy it, and hand it to any AI.</p>
+        <p>I wrote this whole talk as <mark>one plain text file</mark>. Then I asked an AI to write a small script that turns that file into these slides. I wrote words. The machine did the formatting. <mark>That is the right split.</mark></p>
+        <p>Start one file today called <em>keywords.txt</em>. Every new expert word goes in it.</p>
+        <blockquote>Question to keep: <em>Do I own my work, or does the app own me?</em></blockquote>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="Working with it">
+      <div class="slide-inner">
+        <p class="section-num">Chapter 6</p>
+        <h1>Working with it</h1>
+        <p class="guiding">Am I practicing, or just prompting?</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="AI does the labor. You make the decisions.">
+      <div class="slide-inner">
+        <h1>AI does the labor. You make the decisions.</h1>
+        <p>AI is fast and messy: full of ideas, some of them nonsense. Let it do the heavy lifting, then <mark>you decide what stays</mark>.</p>
+        <div class="compare">
+          <div class="col">
+            <h3>Let AI do</h3>
+            <p>Reformatting and converting</p>
+            <p>First messy drafts</p>
+            <p>Summaries you will check</p>
+            <p>Explaining a new word</p>
+          </div>
+          <div class="col">
+            <h3>Only you decide</h3>
+            <p><mark>What question to ask</mark></p>
+            <p><mark>Whether it is true</mark></p>
+            <p><mark>Whether it is good enough</mark></p>
+            <p><mark>What to do next</mark></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Try first, then ask">
+      <div class="slide-inner">
+        <h1>Try first, then ask</h1>
+        <ol class="steps">
+          <li><span class="n">1</span><span><strong>Generate</strong>: spend two minutes on your own guess, outline, or keywords first.</span></li>
+          <li><span class="n">2</span><span><strong>Ask</strong>: now use AI to check, challenge, or expand what you wrote.</span></li>
+          <li><span class="n">3</span><span><strong>Verify</strong>: close the app. Explain it in your own words, and check one claim somewhere else.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Make it a tutor, not a ghostwriter">
+      <div class="slide-inner">
+        <h1>Make it a tutor, not a ghostwriter</h1>
+        <p>The same app can do your homework or make you better at it. The difference is the prompt.</p>
+        <blockquote>Quiz me on <em>[chapter]</em>. One question at a time. Wait for my answer. Tell me what I got right and give me a hint. Do not give me the answer until I have tried twice.</blockquote>
+        <blockquote>I want to research <em>[topic]</em> and I am new to it. Give me eight expert keywords to search, and explain each one simply.</blockquote>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Pocket checklist">
+      <div class="slide-inner">
+        <p class="kicker">Chapter 7</p>
+        <h1>Pocket checklist</h1>
+        <p>Screenshot this. Ask these every time.</p>
+        <ol class="pocket">
+          <li>Is this answer <mark>checked</mark>, or just fluent?</li>
+          <li>Whose world trained this, and does it fit <mark>mine</mark>?</li>
+          <li>Will this make me <mark>stronger tomorrow</mark>, or only faster tonight?</li>
+          <li>Which <mark>keywords</mark> can I steal from this answer?</li>
+          <li>Is my work saved somewhere <mark>I own</mark>?</li>
+          <li>Did I <mark>try first</mark>?</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide section-card" data-title="Back to the loop">
+      <div class="slide-inner">
+        <p class="section-num">Epilogue</p>
+        <h1>Back to the loop</h1>
+        <p class="guiding">Prediction, and what it cannot do.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Prediction is not understanding">
+      <div class="slide-inner">
+        <h1>Prediction is not understanding</h1>
+        <p>Markov counted patterns by hand. A century later, machines count them across the whole internet, well enough to write your essay.</p>
+        <p>But it is still prediction. The machine can tell you which word usually comes next. It cannot tell you <mark>what is worth saying</mark>, <mark>what is true for your life</mark>, or <mark>who you want to become</mark>.</p>
+        <p>That part was never in the pattern. It is yours.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Take the knowledge for yourself">
+      <div class="slide-inner">
+        <h1>Take the knowledge for yourself</h1>
+        <p>An answer on a screen belongs to the app. Knowledge in your head goes wherever you go.</p>
+        <p>Every time you open the app, you make a small choice: <mark>let it think for you, or make it work for you</mark>.</p>
+        <ul class="tight">
+          <li>Try first.</li>
+          <li>Steal the keywords.</li>
+          <li>Keep your own files.</li>
+          <li>Make the final call yourself.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Keywords to take home">
+      <div class="slide-inner">
+        <h1>Keywords to take home</h1>
+        <p>Your first entries for <em>keywords.txt</em>. <mark>Search these yourself.</mark></p>
+        <ol class="pocket">
+          <li><mark>Markov chain</mark></li>
+          <li><mark>Large language model</mark></li>
+          <li><mark>Transformer</mark> (Attention Is All You Need, 2017)</li>
+          <li><mark>ELIZA effect</mark></li>
+          <li><mark>Training data bias</mark></li>
+          <li><mark>Desirable difficulty</mark></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide close-slide" data-title="AI can hand you answers. Only you can turn them into ==knowledge==.">
+      <div class="slide-inner">
+        <h1>AI can hand you answers. Only you can turn them into <mark>knowledge</mark>.</h1>
+        <h1 class="close-line-2">Keep your brain in the loop.</h1>
+        <p class="meta-line">kartikvinayak3@gmail.com</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="progress" aria-live="polite"><span id="prog-num">1</span> / <span id="prog-total">41</span></div>
+
+  <script src="js/deck.js"></script>
+</body>
+</html>

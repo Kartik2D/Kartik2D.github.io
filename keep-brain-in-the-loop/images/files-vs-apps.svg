@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 340" fill="none">
+  <title>File-centric tools share one open format. App-centric tools each keep a proprietary format.</title>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#d5dde6"/>
+    </marker>
+  </defs>
+
+  <text x="256" y="28" text-anchor="middle" fill="#e7edf5" font-family="system-ui, sans-serif" font-size="18" font-weight="700">File-centric</text>
+  <text x="778" y="28" text-anchor="middle" fill="#e7edf5" font-family="system-ui, sans-serif" font-size="18" font-weight="700">App-centric</text>
+
+  <!-- tools -->
+  <g font-family="system-ui, sans-serif" font-size="13" font-weight="650" fill="#1c2a3a" text-anchor="middle">
+    <rect x="40" y="48" width="96" height="108" rx="12" fill="#c5d2de"/>
+    <g transform="translate(88 86)" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M1 -14 C8 -18 14 -18 18 -14 V10 C14 6 8 6 1 10 Z"/>
+      <path d="M1 -14 C-6 -18 -12 -18 -16 -14 V10 C-12 6 -6 6 1 10 Z"/>
+    </g>
+    <text x="88" y="140">Tool A</text>
+
+    <rect x="152" y="48" width="96" height="108" rx="12" fill="#c5d2de"/>
+    <g transform="translate(200 84)" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+      <rect x="-14" y="-18" width="28" height="34" rx="2"/>
+      <path d="M-7 -8 H7 M-7 -1 H7 M-7 6 H3"/>
+    </g>
+    <text x="200" y="140">Tool B</text>
+
+    <rect x="264" y="48" width="96" height="108" rx="12" fill="#c5d2de"/>
+    <g transform="translate(312 84)" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="-18" y="-14" width="36" height="26" rx="3"/>
+      <path d="M-10 -2 L-4 2 L-10 6"/>
+      <path d="M-1 6 H8"/>
+    </g>
+    <text x="312" y="140">Tool C</text>
+
+    <rect x="376" y="48" width="96" height="108" rx="12" fill="#c5d2de"/>
+    <g transform="translate(424 84)" stroke="#fff" stroke-width="2.2">
+      <ellipse cx="0" cy="-12" rx="16" ry="6"/>
+      <path d="M-16 -12 V8 C-16 12 -8 16 0 16 C8 16 16 12 16 8 V-12"/>
+      <path d="M-16 -2 C-16 2 -8 6 0 6 C8 6 16 2 16 -2"/>
+    </g>
+    <text x="424" y="140">Tool D</text>
+  </g>
+
+  <path d="M88 156 V196 M200 156 V196 M312 156 V196 M424 156 V196" stroke="#d5dde6" stroke-width="2" marker-end="url(#ah)"/>
+
+  <rect x="40" y="204" width="432" height="92" rx="18" fill="#2eb8a6"/>
+  <text x="256" y="256" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Plain text / open format</text>
+
+  <!-- apps -->
+  <g font-family="system-ui, sans-serif">
+    <rect x="556" y="44" width="100" height="252" rx="14" fill="#18243a" stroke="#2c3a56"/>
+    <rect x="670" y="44" width="100" height="252" rx="14" fill="#18243a" stroke="#2c3a56"/>
+    <rect x="784" y="44" width="100" height="252" rx="14" fill="#18243a" stroke="#2c3a56"/>
+    <rect x="898" y="44" width="100" height="252" rx="14" fill="#18243a" stroke="#2c3a56"/>
+
+    <rect x="577" y="58" width="58" height="58" rx="10" fill="#2b579a"/>
+    <text x="606" y="96" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">W</text>
+    <rect x="691" y="58" width="58" height="58" rx="10" fill="#217346"/>
+    <text x="720" y="96" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">X</text>
+    <rect x="805" y="58" width="58" height="58" rx="10" fill="#d24726"/>
+    <text x="834" y="96" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">P</text>
+    <rect x="919" y="58" width="58" height="58" rx="10" fill="#3d7eef"/>
+    <circle cx="948" cy="87" r="14" stroke="#fff" stroke-width="2.4"/>
+    <circle cx="948" cy="87" r="5" fill="#fff"/>
+
+    <rect x="566" y="130" width="80" height="46" rx="8" fill="#f3f5f7"/>
+    <rect x="680" y="130" width="80" height="46" rx="8" fill="#f3f5f7"/>
+    <rect x="794" y="130" width="80" height="46" rx="8" fill="#f3f5f7"/>
+    <rect x="908" y="130" width="80" height="46" rx="8" fill="#f3f5f7"/>
+    <text x="606" y="158" text-anchor="middle" fill="#1b2838" font-size="15" font-weight="700">App</text>
+    <text x="720" y="158" text-anchor="middle" fill="#1b2838" font-size="15" font-weight="700">App</text>
+    <text x="834" y="158" text-anchor="middle" fill="#1b2838" font-size="15" font-weight="700">App</text>
+    <text x="948" y="158" text-anchor="middle" fill="#1b2838" font-size="15" font-weight="700">App</text>
+
+    <path d="M606 180 V208 M720 180 V208 M834 180 V208 M948 180 V208" stroke="#d5dde6" stroke-width="2" marker-end="url(#ah)"/>
+
+    <rect x="566" y="214" width="80" height="68" rx="8" fill="#5a636e" stroke="#e07070" stroke-width="2"/>
+    <rect x="680" y="214" width="80" height="68" rx="8" fill="#5a636e" stroke="#e07070" stroke-width="2"/>
+    <rect x="794" y="214" width="80" height="68" rx="8" fill="#5a636e" stroke="#e07070" stroke-width="2"/>
+    <rect x="908" y="214" width="80" height="68" rx="8" fill="#5a636e" stroke="#e07070" stroke-width="2"/>
+    <g fill="#fff" font-size="11" font-weight="650" text-anchor="middle">
+      <text x="606" y="242">Proprietary</text><text x="606" y="258">format</text>
+      <text x="720" y="242">Proprietary</text><text x="720" y="258">format</text>
+      <text x="834" y="242">Proprietary</text><text x="834" y="258">format</text>
+      <text x="948" y="242">Proprietary</text><text x="948" y="258">format</text>
+    </g>
+  </g>
+</svg>
